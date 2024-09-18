@@ -29,7 +29,7 @@ if(!isset($_SESSION['user_name'])){
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a class="active" href="index.html">Home</a></li>
+            <li><a class="active" href="index.html"> Donor Home</a></li>
             <li><a href="login_form.php">LOGIN</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
 
@@ -37,15 +37,7 @@ if(!isset($_SESSION['user_name'])){
     </nav>
 
 <div class="container">
-   <div class="content">
-      <h3>hi, <span>user</span></h3>
-      <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-      <p>this is the user page</p>
-      <a href="login_form.php" class="btn">login</a>
-      <a href="register_form.php" class="btn">register</a>
-      <a href="logout.php" class="btn">logout</a>
-   </div>
-
+ 
 </div>
 
 </body>
