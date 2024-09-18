@@ -30,7 +30,6 @@ if(!isset($_SESSION['user_name'])){
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="login_form.php">LOGIN</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
 
         </ul>
@@ -38,10 +37,10 @@ if(!isset($_SESSION['user_name'])){
 
 <div class="container">
    <div class="content">
-      <h3>hi, <span>user</span></h3>
+      <h3>hello, <span>user</span></h3>
       <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
-      <p>this is the user page</p>
-      <a href="donate.php" class="btn">Donate</a>
+      <p>" Your generosity helps shape brighter futures for our children. <br> Thank you for being part of our mission to uplift and empower the next generation."</p>
+      <a href="donation.php" class="btn">Donate</a>
       <a href="logout.php" class="btn">logout</a>
    </div>
 

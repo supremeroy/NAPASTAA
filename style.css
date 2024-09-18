@@ -45,6 +45,7 @@ nav ul{
 
 nav ul li{
     display: inline-block;
+    float:left;
     line-height: 80px;
     margin: 0 5px;
     text-shadow: 2px 2px 5px #333;
@@ -217,6 +218,53 @@ a.active,a:hover{
  }
  
  /***** End Section *****/
+
+ /*donation form*/
+ h2.h2donate{
+  
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 30px;
+}
+.form_donation {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+input[type="number"], select {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+ 
+ /**/
 
 /*************welcom session***********?*/
 
