@@ -31,17 +31,19 @@ if(!isset($_SESSION['user_name'])){
         <ul>
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
+            <li><a href="logout.php">LOGOUT</a></li>
 
         </ul>
     </nav>
 
 <div class="container">
    <div class="content">
-      <h3>hello, <span>user</span></h3>
+      <h3>hello, <span>DONOR</span></h3>
       <h1>welcome <span><?php echo $_SESSION['user_name'] ?></span></h1>
       <p>" Your generosity helps shape brighter futures for our children. <br> Thank you for being part of our mission to uplift and empower the next generation."</p>
       <a href="donation.php" class="btn">Donate</a>
-      <a href="logout.php" class="btn">logout</a>
+      <a href="upcoming_events.php" class="btn">UPCOMING EVENTS</a>
+
    </div>
 
 </div>

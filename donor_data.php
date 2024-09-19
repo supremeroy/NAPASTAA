@@ -15,6 +15,7 @@
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
+             <li><a href="admin_page.php"> ADMIN HOME</a></li>
             <li><a class="active" href="index.html"> Donor data</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>
         </ul>
@@ -23,7 +24,7 @@
 
 
     <div>
-    <h2>Donor Data</h2>
+    <h2 class="h2donate">Donor Data</h2>
     <?php
 
    // Connect to the database
@@ -41,12 +42,19 @@
    
    if (mysqli_num_rows($result) > 0) {
        echo "<table>";
-       echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>User_type</th></tr>";
+       echo "<tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+          <th>phone</th>           
+            <th>User_type</th>
+       </tr>";
        while($row = mysqli_fetch_assoc($result)) {
            echo "<tr>";
            echo "<td>" . $row["id"] . "</td>";
            echo "<td>" . $row["name"] . "</td>";
            echo "<td>" . $row["email"] . "</td>";
+           echo "<td>" . $row["phone"] . "</td>";
            echo "<td>" . $row["user_type"] . "</td>";
            echo "</tr>";
        }

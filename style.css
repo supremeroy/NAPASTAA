@@ -385,9 +385,10 @@ a.active,a:hover{
     display: inline-block;
     padding:10px 30px;
     font-size: 20px;
-    background: #aa4ff3;;
+    background: #0082e6;;
     color:#fff;
     margin:0 5px;
+    border-radius: 5px;
     text-transform: capitalize;
  }
  
@@ -396,8 +397,8 @@ a.active,a:hover{
    border: 1px solid rgba(255, 255, 255, 0.1);
    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
    backdrop-filter: blur(20px);
-   color: #aa4ff3;
-   border: 1px solid #aa4ff3;
+   color: #000000;
+   border: 1px solid rgb(84, 79, 243);
  }
 
 /**********end welcome session*********/
@@ -529,3 +530,51 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #f2f2f2;
 }
+
+/***** Upcoming events *****/ 
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="date"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #444;
+}
+
+/***** Upcoming Events *****/
