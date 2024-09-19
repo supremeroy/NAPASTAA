@@ -538,7 +538,6 @@ tr:hover {
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 20px;
     max-width: 600px;
     margin: 40px auto;
@@ -546,6 +545,7 @@ form {
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 label {
@@ -557,6 +557,7 @@ input[type="text"], input[type="date"], textarea {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 input[type="file"] {
@@ -578,3 +579,22 @@ input[type="submit"]:hover {
 }
 
 /***** Upcoming Events *****/
+/***** h2 title Section *****/  
+
+.h2title{
+text-align: center;
+margin: 10px;
+}
+
+/***** End h2 title Section *****/
+
+/***** image event Section *****/  
+.event-image {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+/***** End Section *****/

@@ -53,3 +53,29 @@ function showTerms() {
     terms.style.display = "none";
   }
 }
+
+
+
+//show upcoming events in the user page
+// Add event listener to attend button
+document.addEventListener("DOMContentLoaded", function() {
+  const attendButtons = document.querySelectorAll(".attend-btn");
+  attendButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      const eventId = this.getAttribute("data-event-id");
+      // Send AJAX request to attend event
+      fetch("attend_event.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `event_id=${eventId}`
+      })
+      .then(response => response.text())
+      .then(message => {
+        alert(`You have successfully attended the event! ${message}`);
+      })
+      .catch(error => {
+        console.error("Error attending event:", error);
+      });
+    });
+  });
+});

@@ -45,7 +45,7 @@ if(!isset($_SESSION['admin_name'])){
       <h1>welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
       <p>this is an admin page</p>
       <a href="donor_data.php" class="btn">DONOR DETAILS</a>
-      <a href="upcoming_events.php" class="btn">UPCOMING EVENTS</a>
+      <a href="upcoming_events_admin.php" class="btn">UPCOMING EVENTS</a>
    </div>
 
 </div>
