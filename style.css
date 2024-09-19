@@ -228,42 +228,80 @@ a.active,a:hover{
     margin: 20px;
     margin-top: 30px;
 }
+/* Add some basic styling to the form */
 .form_donation {
-    max-width: 500px;
+    max-width: 400px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.form_donation label {
+    display: block;
+    margin-bottom: 10px;
+}
 
-
-input[type="number"], select {
+.form_donation input[type="number"], .form_donation select, .form_donation textarea {
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 10px;
 }
 
-input[type="submit"] {
+.form_donation select {
+    padding: 10px 20px;
+}
+
+.form_donation textarea {
+    height: 100px;
+    padding: 10px;
+    resize: vertical;
+}
+
+.form_donation input[type="submit"] {
     width: 100%;
     height: 40px;
-    background-color: #333;
+    background-color: #4CAF50;
     color: #fff;
-    padding: 10px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
-    background-color: #555;
+.form_donation input[type="submit"]:hover {
+    background-color: #3e8e41;
 }
- 
+
+/* Style the payment method field */
+#payment_method {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Style the M-Pesa payment details fields */
+#mpesa-payment-details {
+    margin-top: 20px;
+}
+
+#mpesa-payment-details label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#mpesa-payment-details input[type="tel"] {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
  /**/
 
 /*************welcom session***********?*/
