@@ -29,7 +29,7 @@ if(!isset($_SESSION['admin_name'])){
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a class="active" href="index.html">Home</a></li>
+            <li><a class="active" href="admin_page.php">Admin Home</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="logout.php">logout</a></li>
         </ul>

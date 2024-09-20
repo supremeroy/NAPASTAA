@@ -74,7 +74,8 @@ if (isset($_POST['donate'])) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a class="active" href="index.html"> Donor Home</a></li>
+            <li><a href="user_page.php">Donor Home</a></li>
+            <li><a class="active" href="donatio.php"> Donate</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>

@@ -43,7 +43,7 @@ if (!$conn) {
 <h2 class="h2title">Upcoming events</h1>
 <?php 
 // Query to retrieve upcoming events
-$query = "SELECT * FROM upcoming_events ORDER BY event_date ASC";
+$query = "SELECT * FROM upcoming_events WHERE completed = 0 ORDER BY event_date ASC";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -70,5 +70,10 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 mysqli_close($conn);
+
+
 ?>
+
+
+
   <script src="script.js"></script>

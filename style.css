@@ -322,9 +322,9 @@ a.active,a:hover{
 
  /*Donation succesful message*/
 
- .donation-successful {
-    animation: slow-appearance 2s forwards;
-    animation-delay: 1s;
+ .successful {
+    animation: slow-appearance 2s forwards, fadeOut 8s forwards;
+    animation-delay: 0s, 2s;
   }
   
   @keyframes slow-appearance {
@@ -335,6 +335,15 @@ a.active,a:hover{
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
   
@@ -566,7 +575,7 @@ input[type="file"] {
 }
 
 input[type="submit"] {
-    background-color: #333;
+    background-color: #006effbd;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -575,7 +584,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #444;
+    background-color: #1a60b6;
 }
 
 /***** Upcoming Events *****/
@@ -597,4 +606,60 @@ margin: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
+/***** End Section *****/
+
+
+/*****  EDIT/DELETE EVENTSection *****/  
+
+.edit-link {
+    color: #ffffff; 
+    background-color: #007bffc3;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 20px;
+  
+  }
+  
+  .edit-link:hover {
+    color: white;
+    background-color: #007bff;
+    font-size: large;
+
+  }
+  
+  .delete-link {
+    color: #ffffff; 
+    background-color: crimson;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px 20px;
+ 
+  }
+  
+  .delete-link:hover {
+    color: white;
+    background-color: red;
+    font-size: large;
+  }
+
+/***** End Section *****/
+
+
+/***** Attend event Section *****/
+
+
+.attend-btn{
+    color: #ffffff; 
+    background-color: #007bffc3;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+  
+  }
+  
+  .attend-btn:hover {
+    color: white;
+    background-color: #007bff;
+
+  }
 /***** End Section *****/
