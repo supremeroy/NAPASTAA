@@ -173,10 +173,42 @@ if (isset($_POST['donate'])) {
     }
 }
 
-// Close database connection
-  mysqli_close($conn);
 ?>
 </form>
+<?php 
+// Display previous donations table
+echo "<h2>Previous Donations</h2>";
+echo "<table border='1'>";
+echo "<tr><th>id</th><th>Donation Type</th><th>Donation Amount</th><th>Payment Method</th><th>Dedication</th></tr>";
+
+// Query to retrieve previous donations from the logged in user
+$sql = "SELECT * FROM donations WHERE user_name = '$user_name'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row['donation_type'] . "</td>";
+        echo "<td>" . $row['donation_amount'] . "</td>";
+        echo "<td>" . $row['payment_method'] . "</td>";
+        echo "<td>" . $row['dedication'] . "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='4'>No previous donations found.</td></tr>";
+}
+
+echo "</table>";
+
+// Close database connection
+  mysqli_close($conn);
+
+?>
+
+
+
+
 
 
 

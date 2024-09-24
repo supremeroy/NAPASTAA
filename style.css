@@ -320,7 +320,7 @@ a.active,a:hover{
 
 
 
- /*Donation succesful message*/
+ /*Donation succesful message animation*/
 
  .successful {
     animation: slow-appearance 2s forwards, fadeOut 8s forwards;
@@ -663,3 +663,46 @@ margin: 10px;
 
   }
 /***** End Section *****/
+
+
+/***** from visit Section *****/
+
+
+input{
+    padding: 10px;
+    border-radius: 5px;
+}
+.form-visit{
+    text-align: left;
+}
+.purpose{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/***** End Section *****/
+
+
+/*****adoption form Section *****/
+.adoption-form ,input{
+    width: -webkit-fill-available;
+    border-radius: 10px;
+    border: 1px solid #dedede;
+
+}
+.adoption-form ,select{
+    width: -webkit-fill-available;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;    
+    padding: 10px;
+}
+
+.adoption-form, h3{
+    text-align: center;
+}
+/***** Endadoption form Section *****/
+
+
+
+
