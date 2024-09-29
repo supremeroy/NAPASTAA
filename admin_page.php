@@ -4,7 +4,7 @@
 
 session_start();
 
-if(!isset($_SESSION['admin_name'])){
+if(!isset($_SESSION['email'])){
    header('location:login_form.php');
 }
 
@@ -41,8 +41,8 @@ if(!isset($_SESSION['admin_name'])){
    <div class="content">
        <style>
        </style>
-      <h3>hi, <span>admin</span></h3>
-      <h1>welcome <span><?php echo $_SESSION['admin_name'] ?></span></h1>
+      <h3>hello <span>admin</span></h3>
+      <h1>welcome</h1>
       <p>this is an admin page</p>
       <a href="donor_data.php" class="btn">DONOR DETAILS</a>
       <a href="donations_data.php" class="btn">DONATION DETAILS</a>
