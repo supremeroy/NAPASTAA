@@ -16,6 +16,7 @@ body{
 
      font-family: 'Open Sans', sans-serif;
      background: #eee;
+     
 }
 
 nav{
@@ -370,8 +371,8 @@ a.active,a:hover{
  }
  
  .container .content h3 span{
-    background: crimson;
-    color:#fff;
+    background: rgba(14, 77, 172, 0.769);
+    color:#ffffff;
     border-radius: 5px;
     padding:0 15px;
  }
@@ -685,7 +686,6 @@ input{
 
 /*****adoption form Section *****/
 .adoption-form ,input{
-    width: -webkit-fill-available;
     border-radius: 10px;
     border: 1px solid #dedede;
 
@@ -702,6 +702,12 @@ input{
     text-align: center;
 }
 /***** Endadoption form Section *****/
+
+/***** donation image background Section *****/ 
+
+
+
+/***** End donation image background  *****/
 
 
 

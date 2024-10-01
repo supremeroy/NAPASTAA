@@ -12,6 +12,7 @@ if(!isset($_SESSION['email'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Online charity/donation system ">
@@ -21,8 +22,8 @@ if(!isset($_SESSION['email'])){
     <title>NAPASTAA HEIMEN CHILDRENS HOME DONATION MANAGEMENT SYSTEM</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-    
-    
+
+
 </head>
 
 <body>
@@ -35,23 +36,25 @@ if(!isset($_SESSION['email'])){
         </ul>
     </nav>
 
-   
-<div class="container">
 
-   <div class="content">
-       <style>
-       </style>
-      <h3>hello <span>admin</span></h3>
-      <h1>welcome</h1>
-      <p>this is an admin page</p>
-      <a href="donor_data.php" class="btn">DONOR DETAILS</a>
-      <a href="donations_data.php" class="btn">DONATION DETAILS</a>
-      <a href="upcoming_events_admin.php" class="btn">UPCOMING EVENTS</a>
-      <a href="adoption_form.php" class="btn">ADOPTION</a>
-      <a href="visitors.php" class="btn"> VISITORS</a>
+    <div class="container">
+
+        <div class="content">
+            <style>
+            </style>
+            <h3>hello <span>admin</span></h3>
+            <p>"Wellcome to the Napastaa Heimen Children's Center Admin Dashboard. Here, you can manage donations, track
+                progress, and ensure our mission is on course. Thank you for your dedication to making a meaningful
+                impact in the lives of our children."</p>
+            <a href="donor_data.php" class="btn">DONOR DETAILS</a>
+            <a href="donations_data.php" class="btn">DONATION DETAILS</a>
+            <a href="upcoming_events_admin.php" class="btn">UPCOMING EVENTS</a>
+            <a href="adoption_form.php" class="btn">ADOPTION</a>
+            <a href="visitors.php" class="btn"> VISITORS</a>
+        </div>
+
     </div>
 
-</div>
-
 </body>
+
 </html>

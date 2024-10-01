@@ -16,6 +16,7 @@ if (!$conn) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Online charity/donation system ">
@@ -31,17 +32,19 @@ if (!$conn) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a  href="user_page.php"> Donor Home</a></li>
-            <li> <a class="active"href="upcoming_events.php" class="btn">EVENTS</a></li>
-            <li> <a href="logout.php" class="btn">logout</a></li>
+            <li><a href="user_page.php"> Donor Home</a></li>
+            <li><a href="donation.php">Donate</a></li>
+            <li> <a class="active" href="upcoming_events.php" class="btn">EVENTS</a></li>
+            <li><a href="visit.php">Visit</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
 </body>
+
 </html>
 
 <h2 class="h2title">Upcoming events</h1>
-<?php 
+    <?php 
 // Query to retrieve upcoming events
 $query = "SELECT * FROM upcoming_events WHERE completed = 0 ORDER BY event_date ASC";
 $result = mysqli_query($conn, $query);
@@ -76,4 +79,4 @@ mysqli_close($conn);
 
 
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>

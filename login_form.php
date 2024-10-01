@@ -42,8 +42,9 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="description" content="Online charity/donation system ">
     <meta name="keywords" content="Donation,Charity,Childrens home">
     <meta name="author" content="Roy Macharia">
@@ -51,6 +52,7 @@ if(isset($_POST['submit'])){
     <title>NAPASTAA HEIMEN CHILDRENS HOME</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
@@ -64,7 +66,7 @@ if(isset($_POST['submit'])){
 
     <div class="form-container">
 
-        <form  action="" method="post">
+        <form action="" method="post">
             <h3>Admin Login</h3>
             <?php
             if(isset($error)){
@@ -73,14 +75,15 @@ if(isset($_POST['submit'])){
                };
             };
             ?>
-            <p>Enter Your Email<sup>*</sup></p>
-            <input type="email" name="email" required placeholder="enter your email">
-            <p>Enter Your Password<sup>*</sup></p>
-            <input type="password" name="password" required placeholder="enter  password">
+            <p>Enter your email<sup>*</sup></p>
+            <input type="email" name="email" required placeholder="email">
+            <p>Enter password<sup>*</sup></p>
+            <input type="password" name="password" required placeholder="password">
             <input type="submit" name="submit" value="login now" class="form-btn">
-                   </form>
+        </form>
 
     </div>
 
 </body>
+
 </html>
