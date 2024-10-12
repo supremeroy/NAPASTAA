@@ -6,17 +6,7 @@ $conn = mysqli_connect("localhost", "root", "", "napastaa_db");
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
-}
-
-
-if(isset($_SESSION['admin_name'])){
-    // admin is logged in, allow access to the page
- } else {
-    header('location:login_form.php');
-    exit;
- }
- 
-// Retrieve the upcoming visitors
+} 
 $query = "SELECT * FROM visitors WHERE visit_date >= CURDATE()";
 $result = mysqli_query($conn, $query);
 
@@ -34,6 +24,7 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Online charity/donation system ">
@@ -49,41 +40,56 @@ mysqli_close($conn);
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a  href="admin_page.php"> Admin HOME</a></li>
-             <li><a class="active"href="#"> VISITORS</a></li>
+            <li><a href="admin_page.php"> Admin HOME</a></li>
+            <li><a class="active" href="#"> VISITORS</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>
         </ul>
     </nav>
 
-    <h2 class="h2title">Upcoming Visitors</h2>
 
-    <table id="visitors-table">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Visit Date</th>
-                <th>Visit Time</th>
-                <th>Purpose of Visit</th>
-                <th>Comment</th>
-            </tr>
-        </thead>
-        <tbody id="visitors-tbody">
-            <?php foreach ($visitors as $visitor) { ?>
-            <tr>
-                <td><?= $visitor['id'] ?></td>
-                <td><?= $visitor['name'] ?></td>
-                <td><?= $visitor['email'] ?></td>
-                <td><?= $visitor['phone_number'] ?></td>
-                <td><?= $visitor['visit_date'] ?></td>
-                <td><?= $visitor['visit_time'] ?></td>
-                <td><?= $visitor['purpose'] ?></td>
-                <td><?= $visitor['comments'] ?></td>
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    <div class="dashboard">
+        <div class="sidebar">
+            <ul>
+                <li><a href="admin_page.php">Dashboard</a></li>
+                <li><a href="donations_data.php">Donations</a></li>
+                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a class="active" href="visitors.php">Visitors</a></li>
+                <li><a href="adoption_form.php">Adoption Form</a></li>
+                <li><a href="childrens_data.php">Children's Data</a></li>
+                <li><a href="staff_info.php">Staff Information</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h2 class="h2title">Visitors</h2>
+            <table id="visitors-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Visit Date</th>
+                        <th>Visit Time</th>
+                        <th>Purpose of Visit</th>
+                        <th>Comment</th>
+                    </tr>
+                </thead>
+                <tbody id="visitors-tbody">
+                    <?php foreach ($visitors as $visitor) { ?>
+                    <tr>
+                        <td><?= $visitor['id'] ?></td>
+                        <td><?= $visitor['name'] ?></td>
+                        <td><?= $visitor['email'] ?></td>
+                        <td><?= $visitor['phone_number'] ?></td>
+                        <td><?= $visitor['visit_date'] ?></td>
+                        <td><?= $visitor['visit_time'] ?></td>
+                        <td><?= $visitor['purpose'] ?></td>
+                        <td><?= $visitor['comments'] ?></td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
 </body>
+
 </html>

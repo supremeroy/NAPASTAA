@@ -24,8 +24,13 @@
 
         </ul>
     </nav>
-
+    <div class="dimage">
+        <img class="d" src="images/8.jpg" alt="">
+        <img class="d" src="images/reader.jpg" alt="">
+        <img class="d" src="images/swing.jpg" alt="">
+    </div>
     <div class="container">
+
         <div class="content">
             <h3>Hello, <span>DONOR</span></h3>
             <h3>"Welcome to Napastaa Heimen Children's Center</h3>

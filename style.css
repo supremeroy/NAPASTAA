@@ -1,714 +1,787 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 
-
-
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-body{
+body {
+  overflow-x: hidden;
 
-    overflow-x: hidden;
-
-     font-family: 'Open Sans', sans-serif;
-     background: #eee;
-     
+  font-family: "Open Sans", sans-serif;
+  background: #eee;
 }
 
-nav{
-    background: #0082e6;
-    height: 80px;
-    width: 100%;
-    
- 
+nav {
+  background: #0082e6;
+  height: 80px;
+  width: 100%;
 }
 
-label.logo{
-    color:white;
-    font-size: 25px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-    padding-left: 10px;
-    padding-right: 0px;
-    text-shadow: 2px 2px 5px #333;
-
+label.logo {
+  color: white;
+  font-size: 25px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 0px;
+  text-shadow: 2px 2px 5px #333;
 }
 
-nav ul{
-    float: right;
-    margin-right: 20px;
+nav ul {
+  float: right;
+  margin-right: 20px;
 }
 
-nav ul li{
-    display: inline-block;
-    float:left;
-    line-height: 80px;
-    margin: 0 5px;
-    text-shadow: 2px 2px 5px #333;
+nav ul li {
+  display: inline-block;
+  float: left;
+  line-height: 80px;
+  margin: 0 5px;
+  text-shadow: 2px 2px 5px #333;
 }
 
-nav ul li a{
-    color: white;
-    font-size: 17px;
-    padding: 7px 13px;
-    border-radius: 3px;
-    text-transform: uppercase;
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
 }
 
-a.active,a:hover{
-    background: #1b9bff;
-    transition: .5s;
-    border-radius: 5px;
+a.active,
+a:hover {
+  background: #1b9bff;
+  transition: 0.5s;
+  border-radius: 5px;
 }
 
-.banner-card{
-    position: relative;
-    background-color: #0067b7;
-    height: auto;
+.banner-card {
+  position: relative;
+  background-color: #0067b7;
+  height: auto;
 }
 
-.banner-card img{
-    max-width: 100%;    
+.banner-card img {
+  max-width: 100%;
 }
 
-.banner-text{
-    position: absolute;
-    top: 55%;
-    color: white;
-    padding: 10px;
-
+.banner-text {
+  position: absolute;
+  top: 55%;
+  color: white;
+  padding: 10px;
 }
 
-.banner-text p{
-    margin-left: 20px;
-    font-size: 20px;
+.banner-text p {
+  margin-left: 20px;
+  font-size: 20px;
 }
 
-.banner-text h1{
-    font-size: 50px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-left: 20px;
+.banner-text h1 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-left: 20px;
 }
 
-.donate-button{
-    display: inline-block;
-    text-decoration: none;
-    color:white;
-    background: #0082e6;
-    border: 1px solid white;
-    padding: 9px 25px;
-    line-height: 1.4;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-left: 55px;
+.donate-button {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #0082e6;
+  border: 1px solid white;
+  padding: 9px 25px;
+  line-height: 1.4;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-left: 55px;
 }
-.donate-button:hover{
-    transform: scale(1.2);
-    border: 1px solid #f5dca8;
-    background: transparent;
-    color: white;
-    transition: .4s;
+.donate-button:hover {
+  transform: scale(1.2);
+  border: 1px solid #f5dca8;
+  background: transparent;
+  color: white;
+  transition: 0.4s;
 }
-.donate-button.cta{
-    border:1px solid #f5dca8;
-    color: white;
-    background: transparent;
-    margin-left: 20px;
+.donate-button.cta {
+  border: 1px solid #f5dca8;
+  color: white;
+  background: transparent;
+  margin-left: 20px;
 }
-.donate-button.cta i{
-    margin-right: 12px;
+.donate-button.cta i {
+  margin-right: 12px;
 }
-.donate-button.cta:hover{
-    color: black;
-    background: white;
-    border: 1px solid white;
-    transition: .4s;
+.donate-button.cta:hover {
+  color: black;
+  background: white;
+  border: 1px solid white;
+  transition: 0.4s;
 }
 
-
-/***** FORM Login Section *****/ 
-.form-container{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:20px;
-    padding-bottom: 60px;
-    margin-top: 5rem;
- }
- h2.h2donate{
-  
-    display: block;
-    text-align: center;
-    justify-content: center;
-    margin: 5px;
+/***** FORM Login Section *****/
+.form-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  padding-bottom: 60px;
+  margin-top: 5rem;
 }
- .form-container form{
-    background-color: rgba(255, 255, 255, 0.05);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(20px);
-   width: 50vw;
-   position: relative;
-   padding: 2rem 1rem;
-   border-radius: 10px;
- }
- 
- .form-container form h3{
-    text-align: center;
-    text-transform: uppercase;
-    color: #005792;
-    font-size: 1.5rem;
-    margin-bottom: 2rem
- }
- 
- .form-container form input,
- .form-container form select{
-    background-color: rgba(255, 255, 255, 0.05);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(20px);
-   border: 1px solid #c7b3f5;
-    width: 100%;
-    padding:10px 15px;
-    font-size: 17px;
-    margin:8px 0;
-    
-    border-radius: 5px;
- }
- .form-container form sup{
-    color: red;
- }
- .form-container form select option{
-    background: #fff;
- }
- 
- .form-container form .form-btn{
-    background: #0082e6;
-    text-transform: capitalize;
-    font-size: 20px;
-    cursor: pointer;
- }
- 
- .form-container form .form-btn:hover{
-    background: #005792;
-    color:#fff;
- 
- }
- 
- .form-container form p{
-    text-transform: capitalize;
-    margin-top: 10px;
-    font-size: 20px;
-    color:#333;
- }
- 
- .form-container form p a{
-    color:#e382c5;
- }
- 
- .form-container form .error-msg{
-    margin:10px 0;
-    display: block;
-    background: crimson;
-    color:#fff;
-    border-radius: 5px;
-    font-size: 20px;
-    padding:10px;
- }
- 
- /***** End Section *****/
+h2.h2donate {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin: 5px;
+}
+.form-container form {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  width: 50vw;
+  position: relative;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
 
- /*donation form*/
+.form-container form h3 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #005792;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
 
-/* Add some basic styling to the form */
+.form-container form input,
+.form-container form select {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid #c7b3f5;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 17px;
+  margin: 8px 0;
+
+  border-radius: 5px;
+}
+.form-container form sup {
+  color: red;
+}
+.form-container form select option {
+  background: #fff;
+}
+
+.form-container form .form-btn {
+  background: #0082e6;
+  text-transform: capitalize;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.form-container form .form-btn:hover {
+  background: #005792;
+  color: #fff;
+}
+
+.form-container form p {
+  text-transform: capitalize;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.form-container form p a {
+  color: #e382c5;
+}
+
+.form-container form .error-msg {
+  margin: 10px 0;
+  display: block;
+  background: crimson;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+/***** End Section *****/
+
+/*donation form*/
+
 .form_donation {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
 }
 
 .form_donation label {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
-.form_donation input[type="number"], .form_donation select, .form_donation textarea {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.form_donation input[type="number"],
+.form_donation select,
+.form_donation textarea {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .form_donation select {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .form_donation textarea {
-    height: 100px;
-    padding: 10px;
-    resize: vertical;
+  height: 100px;
+  padding: 10px;
+  resize: vertical;
 }
 
 .form_donation input[type="submit"] {
-    width: 100%;
-    height: 40px;
-    background-color: #0067b7;
-    ;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 100%;
+  height: 40px;
+  background-color: #0067b7;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .form_donation input[type="submit"]:hover {
-    background-color: #3e8e41;
+  background-color: #3e8e41;
 }
 
-
 /* Style for payment input fields */
-#paypal-payment-details input, 
-#mpesa-payment-details input, 
+#paypal-payment-details input,
+#mpesa-payment-details input,
 #bank-transfer-payment-details input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for payment input fields on focus */
-#paypal-payment-details input:focus, 
-#mpesa-payment-details input:focus, 
+#paypal-payment-details input:focus,
+#mpesa-payment-details input:focus,
 #bank-transfer-payment-details input:focus {
-    border-color: #aaa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Style for payment labels */
-#paypal-payment-details label, 
-#mpesa-payment-details label, 
+#paypal-payment-details label,
+#mpesa-payment-details label,
 #bank-transfer-payment-details label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 /* Style for payment input fields error messages */
-#paypal-payment-details input:invalid, 
-#mpesa-payment-details input:invalid, 
+#paypal-payment-details input:invalid,
+#mpesa-payment-details input:invalid,
 #bank-transfer-payment-details input:invalid {
-    border-color: #f00;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+  border-color: #f00;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
- /**/
+/**/
 
+/*Donation succesful message animation*/
 
+.successful {
+  animation: slow-appearance 2s forwards, fadeOut 8s forwards;
+  animation-delay: 0s, 2s;
+}
 
- /*Donation succesful message animation*/
-
- .successful {
-    animation: slow-appearance 2s forwards, fadeOut 8s forwards;
-    animation-delay: 0s, 2s;
+@keyframes slow-appearance {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  @keyframes slow-appearance {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
   }
-  
- /**/
+  100% {
+    opacity: 0;
+  }
+}
+
+/**/
 /*************welcom session***********?*/
 
+.container {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  padding-bottom: 60px;
+}
 
-.container{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:20px;
-    padding-bottom: 60px;
- }
- 
- .container .content{
-    text-align: center;
- }
- 
- .container .content h3{
-    font-size: 30px;
-    color:#333;
- }
- 
- .container .content h3 span{
-    background: rgba(14, 77, 172, 0.769);
-    color:#ffffff;
-    border-radius: 5px;
-    padding:0 15px;
- }
- 
- .container .content h1{
-    font-size: 50px;
-    color:#333;
- }
- 
- .container .content h1 span{
-    color:crimson;
- }
- 
- .container .content p{
-    font-size: 25px;
-    margin-bottom: 20px;
- }
- 
- .container .content .btn{
-    display: inline-block;
-    padding:10px 30px;
-    font-size: 20px;
-    background: #0082e6;;
-    color:#fff;
-    margin:0 5px;
-    border-radius: 5px;
-    text-transform: capitalize;
- }
- 
- .container .content .btn:hover{
-    background-color: rgba(255, 255, 255, 0.05);
-   border: 1px solid rgba(255, 255, 255, 0.1);
-   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-   backdrop-filter: blur(20px);
-   color: #000000;
-   border: 1px solid rgb(84, 79, 243);
- }
+.container .content {
+  text-align: center;
+}
+
+.container .content h3 {
+  font-size: 30px;
+  color: #333;
+}
+
+.container .content h3 span {
+  background: rgba(14, 77, 172, 0.769);
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0 15px;
+}
+
+.container .content h1 {
+  font-size: 50px;
+  color: #333;
+}
+
+.container .content h1 span {
+  color: crimson;
+}
+
+.container .content p {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.container .content .btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 20px;
+  background: #0082e6;
+  color: #fff;
+  margin: 0 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.container .content .btn:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  color: #000000;
+  border: 1px solid rgb(84, 79, 243);
+}
 
 /**********end welcome session*********/
 
-
-
 /*ABOUT US*/
 
-.container{
-    width: 90%;
-    margin: 0 auto;
-    padding: 10px 20px;
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 20px;
 }
 
-.about{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.about-image{
-    flex:1;
-    margin-right: 40px;
-    overflow: hidden;
-    margin-top: 40px;
+.about-image {
+  flex: 1;
+  margin-right: 40px;
+  overflow: hidden;
+  margin-top: 40px;
 }
-.about-image img{
-    max-width: 100%;
-    height: auto;
-    display: block;
-    transition: 0.5s ease;
-    border-radius: 6px;
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: 0.5s ease;
+  border-radius: 6px;
 }
-.about-image:hover img{
-    transform: scale(1.2);
+.about-image:hover img {
+  transform: scale(1.2);
 }
-.about-content{
-    flex:1;
+.about-content {
+  flex: 1;
 }
-.about-content h2{
-    font-size: 23px;
-    margin-bottom: 15px;
-    color: #333;
-    
+.about-content h2 {
+  font-size: 23px;
+  margin-bottom: 15px;
+  color: #333;
 }
-.about-content p{
-    font-size: 18px;
-    line-height: 1.5;
-    color:#666;
+.about-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
 }
-.about-content .donate-now{
-    display: inline-block;
-    padding: 10px 20px;
-    color: white;
-    font-size: 19px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    transition: 0.3s ease;
-    background-color: #0082e6;
+.about-content .donate-now {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  font-size: 19px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: 0.3s ease;
+  background-color: #0082e6;
 }
-.donate-now:hover{
-    background: white;
-    border: 1px solid white;
-    transition: .4s; 
-    background-color: #1b9bff;
-    font-size: 20px;
+.donate-now:hover {
+  background: white;
+  border: 1px solid white;
+  transition: 0.4s;
+  background-color: #1b9bff;
+  font-size: 20px;
 }
 
-
-.contact-us{
-    margin-top: 20px;
+.contact-us {
+  margin-top: 20px;
 }
 @media screen and (max-width: 768px) {
-    .heading{
-        padding:0px 20px;
-    }
-    .heading h1{
-        font-size: 36px;
-    }
-    .heading p{
-        font-size: 17px;
-        margin-bottom: 0px;
-    }
-    .container{
-        padding: 0px;
-    }
-    .about{
-        padding: 20px;
-        flex-direction: column;
-    }
-    .about-image{
-        margin-right: 0px;
-        margin-bottom: 20px;
-    }
-    .about-content p{
-        padding: 0px;
-        font-size: 16px;
-    }
-    .about-content.donate-now{
-        font-size: 16px;
-    }
+  .heading {
+    padding: 0px 20px;
+  }
+  .heading h1 {
+    font-size: 36px;
+  }
+  .heading p {
+    font-size: 17px;
+    margin-bottom: 0px;
+  }
+  .container {
+    padding: 0px;
+  }
+  .about {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .about-image {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .about-content p {
+    padding: 0px;
+    font-size: 16px;
+  }
+  .about-content.donate-now {
+    font-size: 16px;
+  }
 }
 
-
-
-   /* Add some basic styling to the table */
-   table {
-    border-collapse: collapse;
-    width: 80%;
-    margin: 20px auto;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Add some basic styling to the table */
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
 }
 th {
-    background-color: #f0f0f0;
-    font-weight: bold;
-    color: #333;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #333;
 }
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 tr:hover {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
-/***** Upcoming events *****/ 
-
-
+/***** Upcoming events *****/
 
 form {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 label {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-input[type="text"], input[type="date"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
 input[type="file"] {
-    padding: 10px;
-    margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
 
 input[type="submit"] {
-    background-color: #006effbd;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #006effbd;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #1a60b6;
+  background-color: #1a60b6;
 }
 
 /***** Upcoming Events *****/
-/***** h2 title Section *****/  
+/***** h2 title Section *****/
 
-.h2title{
-text-align: center;
-margin: 10px;
+.h2title {
+  text-align: center;
+  margin: 10px;
 }
 
 /***** End h2 title Section *****/
 
-/***** image event Section *****/  
+/***** image event Section *****/
 .event-image {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
 /***** End Section *****/
 
-
-/*****  EDIT/DELETE EVENTSection *****/  
+/*****  EDIT/DELETE EVENTSection *****/
 
 .edit-link {
-    color: #ffffff; 
-    background-color: #007bffc3;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px 20px;
-  
-  }
-  
-  .edit-link:hover {
-    color: white;
-    background-color: #007bff;
-    font-size: large;
+  color: #ffffff;
+  background-color: #007bffc3;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px 20px;
+}
 
-  }
-  
-  .delete-link {
-    color: #ffffff; 
-    background-color: crimson;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px 20px;
- 
-  }
-  
-  .delete-link:hover {
-    color: white;
-    background-color: red;
-    font-size: large;
-  }
+.edit-link:hover {
+  color: white;
+  background-color: #007bff;
+  font-size: large;
+}
+
+.delete-link {
+  color: #ffffff;
+  background-color: crimson;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.delete-link:hover {
+  color: white;
+  background-color: red;
+  font-size: large;
+}
 
 /***** End Section *****/
-
 
 /***** Attend event Section *****/
 
+.attend-btn {
+  color: #ffffff;
+  background-color: #007bffc3;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+}
 
-.attend-btn{
-    color: #ffffff; 
-    background-color: #007bffc3;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-  
-  }
-  
-  .attend-btn:hover {
-    color: white;
-    background-color: #007bff;
-
-  }
+.attend-btn:hover {
+  color: white;
+  background-color: #007bff;
+}
 /***** End Section *****/
-
 
 /***** from visit Section *****/
 
-
-input{
-    padding: 10px;
-    border-radius: 5px;
+input {
+  padding: 10px;
+  border-radius: 5px;
 }
-.form-visit{
-    text-align: left;
+.form-visit {
+  text-align: left;
 }
-.purpose{
-    padding: 10px;
-    border-radius: 5px;
+.purpose {
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /***** End Section *****/
 
-
 /*****adoption form Section *****/
-.adoption-form ,input{
-    border-radius: 10px;
-    border: 1px solid #dedede;
-
+.adoption-form,
+input {
+  border-radius: 10px;
+  border: 1px solid #dedede;
 }
-.adoption-form ,select{
-    width: -webkit-fill-available;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 10px;    
-    padding: 10px;
+.adoption-form,
+select {
+  width: -webkit-fill-available;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.adoption-form, h3{
-    text-align: center;
+.adoption-form,
+h3 {
+  text-align: center;
 }
 /***** Endadoption form Section *****/
 
-/***** donation image background Section *****/ 
+/***** visit form Section *****/
 
+.form-visit,
+input {
+  width: 100%;
+}
 
+/***** End Section *****/
 
-/***** End donation image background  *****/
+/*****  SIDE PIC *****/
+.img-back {
+  display: flex;
+  width: 100%;
+}
+/***** End SIDE PIC *****/
 
+/***** DONATION IMG *****/
+.imgd {
+  margin: 20px;
+}
 
+.imgd1 {
+  margin-top: 100px;
+  border-radius: 10px;
+}
 
+.pd {
+  margin-top: 20px;
+  color: black;
+  text-decoration: solid;
+  text-align: center;
+}
+/***** End DONATION IMG *****/
 
+/***** VISIT FORM *****/
+.imgv1,
+.imgv2 {
+  border-radius: 10px;
+  margin: 10px;
+  margin-left: 50px;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+.imgv2 {
+  width: 700px;
+  height: 500px;
+}
+/***** End VISIT FORM *****/
+
+/***** USERPAGE IMAGE *****/
+.dimage {
+  display: flex;
+  align-items: center;
+}
+.dimage,
+.d {
+  width: 350px;
+  height: 350%;
+  margin: 20px;
+  border-radius: 10px;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+/***** End USERPAGE IMAGE *****/
+
+/***** ADMIN SIDE PANEL *****/
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sidebar {
+  margin-top: 40px;
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #000000;
+  padding: 10px;
+}
+
+.sidebar li a:hover {
+  color: #fbfbfb;
+  margin: 5px;
+}
+
+.main-content {
+  width: calc(100% - 250px);
+  padding: 20px;
+}
+/***** End ADMIN SIDE PANEL *****/

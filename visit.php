@@ -59,53 +59,60 @@ mysqli_close($conn);
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
-    <div class="background">
-        <div class="container">
-            <div class="content">
+    <div class="img-back">
+        <div class="img">
+            <img class="imgv1" src="images/volunteer2.jpg" alt="volunteer 2">
+            <img class="imgv2" src="images/volunteer1.jpg" alt="picture of volunteers">
+            <br>
+        </div>
 
-                <p>Please fill in the form below to request a visit to Napastaa Heimen childrens center.</p>
+        <div class="background">
+            <div class="container">
+                <div class="content">
+                    <p>Please fill in the form below to request a visit to Napastaa Heimen childrens center.</p>
+                    <form class="form-visit" method="post"
+                        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                        <h3 style="text-align:center">Visit Form</h3>
+                        <br>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required><br>
+                        <label for="phone_number">Phone number:</label>
+                        <input type="tel" id="phone_number" name="phone_number" required><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="visit_date">Visit Date:</label>
+                        <input type="date" id="visit_date" name="visit_date" required><br>
 
-                <form class="form-visit" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                    <h3 style="text-align:center">Visit Form</h3>
-                    <br>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required><br>
-                    <label for="phone_number">Phone number:</label>
-                    <input type="tel" id="phone_number" name="phone_number" required><br>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
-                    <label for="visit_date">Visit Date:</label>
-                    <input type="date" id="visit_date" name="visit_date" required><br>
+                        <label for="visit_time">Visit Time:</label>
+                        <input type="time" id="visit_time" name="visit_time" required><br>
 
-                    <label for="visit_time">Visit Time:</label>
-                    <input type="time" id="visit_time" name="visit_time" required><br>
+                        <label for="purpose_of_visit">Purpose of Visit:</label>
+                        <select class="purpose" id="purpose_of_visit" name="purpose_of_visit" required>
+                            <option value="">Select a purpose</option>
+                            <option value="Volunteering">Volunteering</option>
+                            <option value="Donation">Donation</option>
+                            <option value="Tour of the Facility">Tour of the Facility</option>
+                            <option value="Adopt">Adopt a child</option>
+                            <option value="Other">Other</option>
+                        </select><br>
 
-                    <label for="purpose_of_visit">Purpose of Visit:</label>
-                    <select class="purpose" id="purpose_of_visit" name="purpose_of_visit" required>
-                        <option value="">Select a purpose</option>
-                        <option value="Volunteering">Volunteering</option>
-                        <option value="Donation">Donation</option>
-                        <option value="Tour of the Facility">Tour of the Facility</option>
-                        <option value="Adopt">Adopt a child</option>
-                        <option value="Other">Other</option>
-                    </select><br>
+                        <label for="duration_of_stay">Duration of Stay:</label>
+                        <input type="text" id="duration_of_stay" name="duration_of_stay"><br>
 
-                    <label for="duration_of_stay">Duration of Stay:</label>
-                    <input type="text" id="duration_of_stay" name="duration_of_stay"><br>
+                        <label for="special_requirements">Special Requirements or Requests:</label>
+                        <textarea id="special_requirements" name="special_requirements"></textarea><br>
 
-                    <label for="special_requirements">Special Requirements or Requests:</label>
-                    <textarea id="special_requirements" name="special_requirements"></textarea><br>
-
-                    <input type="submit" value="Request Visit">
-                    <br>
-                    <div class="successful"
-                        style="<?php if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone_number'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
-                        <div
-                            style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
-                            Visit Request Submitted succesfully!
+                        <input type="submit" value="Request Visit">
+                        <br>
+                        <div class="successful"
+                            style="<?php if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone_number'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                            <div
+                                style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                                Visit Request Submitted succesfully!
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

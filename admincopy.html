@@ -1,4 +1,5 @@
 <?php
+
 @include 'config.php';
 
 session_start();
@@ -6,6 +7,7 @@ session_start();
 if(!isset($_SESSION['email'])){
    header('location:login_form.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +23,11 @@ if(!isset($_SESSION['email'])){
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
 
+
 </head>
 
 <body>
-    <nav>
+ <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a class="active" href="admin_page.php">Admin Dashboard</a></li>
@@ -32,22 +35,22 @@ if(!isset($_SESSION['email'])){
             <li><a href="logout.php">logout</a></li>
         </ul>
     </nav>
-    <div class="dashboard">
-        <div class="sidebar">
-            <ul>
-                <li><a class="active" href="admin_page.php">Dashboard</a></li>
-                <li><a href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
-                <li><a href="visitors.php">Visitors</a></li>
-                <li><a href="adoption_form.php">Adoption Form</a></li>
-                <li><a href="childrens_data.php">Children's Data</a></li>
-                <li><a href="staff_info.php">Staff Information</a></li>
-            </ul>
+            <style>
+            </style>
+            <h3>hello <span>admin</span></h3>
+            <p>"Wellcome to the Napastaa Heimen Children's Center Admin Dashboard. Here, you can manage donations, track
+                progress, and ensure our mission is on course. Thank you for your dedication to making a meaningful
+                impact in the lives of our children."</p>
+            <a href="donations_data.php" class="btn">DONATIONS</a>
+            <a href="upcoming_events_admin.php" class="btn">POST EVENTS</a>
+            <a href="visitors.php" class="btn"> VISITORS</a>
+            <a href="adoption_form.php" class="btn">ADOPTION FORM</a>
+            <a href="childrens_data.php" class="btn">CHILDRENS DATA</a>
+            <a href="staff_info.php" class="btn">STAFF</a>
         </div>
-        <div class="main-content">
-            <h1 style="alignment:center;">Welcome to the Admin Dashboard</h1>
-        </div>
+
     </div>
+
 </body>
 
 </html>

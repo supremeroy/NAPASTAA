@@ -1,10 +1,9 @@
 <?php
-session_start();
-
 @include 'config.php';
 
-if(isset($_SESSION['admin_name'])){
-   // admin is logged in, allow access to the page
+session_start();
+
+if(isset($_SESSION['email'])){
 } else {
    header('location:login_form.php');
    exit;
@@ -23,9 +22,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       $image_tmp_name = $event_image['tmp_name'];
       $image_size = $event_image['size'];
       $image_type = $event_image['type'];
-
-
-    
 
       // Check if the image is valid
       $allowed_types = array('image/jpeg', 'image/png', 'image/gif');
@@ -67,40 +63,57 @@ $result = mysqli_query($conn, $query);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Upcoming Event</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a href="admin_page.php">ADMIN HOME</a></li>
-            <li><a class="active" href="upcoming_events.php">UPCOMING EVENTS</a></li>
+            <li><a class="active" href="upcoming_events_admin.php">UPCOMING EVENTS</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
 
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-      <h1 class="h1event">Post Upcoming Event</h1>
-        <label for="event_title">Event Title:</label>
-        <input type="text" id="event_title" name="event_title" required><br><br>
+    <div class="dashboard">
+        <div class="sidebar">
+            <ul>
+                <li><a href="donations_data.php">Donations</a></li>
+                <li><a class="active" href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="visitors.php">Visitors</a></li>
+                <li><a href="adoption_form.php">Adoption Form</a></li>
+                <li><a href="childrens_data.php">Children's Data</a></li>
+                <li><a href="staff_info.php">Staff Information</a></li>
+            </ul>
+        </div>
 
-        <label for="event_date">Event Date:</label>
-        <input type="date" id="event_date" name="event_date" required><br><br>
+        <div class="main-content">
+            <h2 class="h2title">Upcoming events</h2>
 
-        <label for="event_description">Event Description:</label>
-        <textarea id="event_description" name="event_description" required></textarea><br><br>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+                <h1 class="h1event">Post Upcoming Event</h1>
+                <label for="event_title">Event Title:</label>
+                <input type="text" id="event_title" name="event_title" required><br><br>
 
-        <label for="event_image">Event Image:</label>
-        <input type="file" id="event_image" name="event_image" required><br><br>
+                <label for="event_date">Event Date:</label>
+                <input type="date" id="event_date" name="event_date" required><br><br>
 
-        <input type="submit" value="Post Event">
-   <br>
-        <?php
+                <label for="event_description">Event Description:</label>
+                <textarea id="event_description" name="event_description" required></textarea><br><br>
+
+                <label for="event_image">Event Image:</label>
+                <input type="file" id="event_image" name="event_image" required><br><br>
+
+                <input type="submit" value="Post Event">
+                <br>
+                <?php
 if(isset($posted)) {
    echo '<div class="successful" style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">Event posted Successful!</div>';
 }
@@ -108,45 +121,47 @@ if(isset($posted)) {
 
 
 
-    </form>
+            </form>
 
-    <h2 style="text-align: center;">Upcoming Events</h2>
-        <table>
-        <tr>
-            <th>id</th>
-            <th>Event Title</th>
-            <th>Event Date</th>
-            <th>Event Description</th>
-            <th>Event Image</th>
-            <th>Completed</th>
-            <th>Actions</th>
-        </tr>
-        <?php while($row = mysqli_fetch_assoc($result)) { ?>
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['event_title']; ?></td>
-            <td><?php echo $row['event_date']; ?></td>
-            <td><?php echo $row['event_description']; ?></td>
-            <td><img src="<?php echo $row['event_image']; ?>" width="150" height="100" style="border-radius: 5px;"></td>
-             <td>
-                <input type="checkbox" name="completed" value="<?php echo $row['id']; ?>" <?php if($row['completed'] == 1) echo "checked"; ?>>
-            </td>
-            <td>
-                <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="edit-link">Edit</a>
-                <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="delete-link">Delete</a>
-            </td>
-        </tr>
-        <?php } ?>
-       
-    </table>
+            <h2 style="text-align: center;">Upcoming Events</h2>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>Event Title</th>
+                    <th>Event Date</th>
+                    <th>Event Description</th>
+                    <th>Event Image</th>
+                    <th>Completed</th>
+                    <th>Actions</th>
+                </tr>
+                <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                <tr>
+                    <td><?php echo $row['id']; ?></td>
+                    <td><?php echo $row['event_title']; ?></td>
+                    <td><?php echo $row['event_date']; ?></td>
+                    <td><?php echo $row['event_description']; ?></td>
+                    <td><img src="<?php echo $row['event_image']; ?>" width="150" height="100"
+                            style="border-radius: 5px;"></td>
+                    <td>
+                        <input type="checkbox" name="completed" value="<?php echo $row['id']; ?>"
+                            <?php if($row['completed'] == 1) echo "checked"; ?>>
+                    </td>
+                    <td>
+                        <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="edit-link">Edit</a>
+                        <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="delete-link">Delete</a>
+                    </td>
+                </tr>
+                <?php } ?>
 
-   
-   
-
+            </table>
 
 
 
-    <?php
+
+
+
+
+            <?php
 // Check if the user has clicked the "Attend Event" button
 if (isset($_GET['id'])) {
   $event_id = $_GET['id'];
@@ -174,6 +189,8 @@ if (isset($_GET['id'])) {
   echo "</table>";
 }
 ?>
+        </div>
 
 </body>
-</html> 
+
+</html>
