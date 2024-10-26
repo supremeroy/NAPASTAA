@@ -1,11 +1,18 @@
 <?php
 @include 'config.php';
-
 session_start();
-
 if(!isset($_SESSION['email'])){
    header('location:login_form.php');
 }
+
+$query = "SELECT * FROM adoption_applications";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    echo "Error fetching data: " . mysqli_error($conn);
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +52,45 @@ if(!isset($_SESSION['email'])){
             </ul>
         </div>
         <div class="main-content">
-
-
+            <h2>Adoption Applications</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Child's Name</th>
+                        <th>Child's Age</th>
+                        <th>Child's Gender</th>
+                        <th>Creation Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Loop through the results and output each row in the table
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row['id']) . "</td>"; // Assuming 'id' is a column in your table
+                        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['address']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['child_name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['child_age']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['child_gender']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['creation_date']) . "</td>"; // Assuming 'creation_date' is a column
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
+    </div>
+
+
+    </div>
     </div>
 </body>
 
