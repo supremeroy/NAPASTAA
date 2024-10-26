@@ -58,7 +58,7 @@ mysqli_close($conn);
             </ul>
         </div>
         <div class="main-content">
-            <h2 class="h2title">Unprosessd Donations</h2>
+            <h2 class="h2title"> Donations</h2>
 
             <?php 
 if (mysqli_num_rows($result) > 0) {
