@@ -85,6 +85,7 @@ $result = mysqli_query($conn, $query);
     <div class="dashboard">
         <div class="sidebar">
             <ul>
+                <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
                 <li><a class="active" href="upcoming_events_admin.php">Upcoming Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>

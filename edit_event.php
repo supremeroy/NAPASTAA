@@ -61,12 +61,14 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Upcoming Event</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
@@ -76,22 +78,33 @@ if (isset($_POST['submit'])) {
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
+    <div class="dashboard">
+        <div class="sidebar">
+            <ul>
+                <li><a href="admin_page.php">Dashboard</a></li>
+                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a class="active" href="edit_event.php">Edit events</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <h2 class="h2title">Unprosessd Donations</h2>
 
-  
-<form action="edit_event.php?id=<?php echo $event_id; ?>" method="post" enctype="multipart/form-data">
-  <label>Event Title:</label>
-  <input type="text" name="event_title" value="<?php echo $event['event_title']; ?>"><br><br>
-  <label>Event Date:</label>
-  <input type="date" name="event_date" value="<?php echo $event['event_date']; ?>"><br><br>
-  <label>Event Description:</label>
-  <textarea name="event_description"><?php echo $event['event_description']; ?></textarea><br><br>
-  <label>Event Image:</label>
-  <input type="file" name="event_image"><br><br>
-  <input type="submit" name="submit" value="Update Event">
-</form>
+
+            <form action="edit_event.php?id=<?php echo $event_id; ?>" method="post" enctype="multipart/form-data">
+                <label>Event Title:</label>
+                <input type="text" name="event_title" value="<?php echo $event['event_title']; ?>"><br><br>
+                <label>Event Date:</label>
+                <input type="date" name="event_date" value="<?php echo $event['event_date']; ?>"><br><br>
+                <label>Event Description:</label>
+                <textarea name="event_description"><?php echo $event['event_description']; ?></textarea><br><br>
+                <label>Event Image:</label>
+                <input type="file" name="event_image"><br><br>
+                <input type="submit" name="submit" value="Update Event">
+            </form>
+        </div>
 </body>
+
 </html>
 
 <script src="script.js"></script>
 <!-- Edit event form -->
-

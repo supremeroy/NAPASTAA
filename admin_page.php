@@ -27,7 +27,7 @@ if(!isset($_SESSION['email'])){
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a class="active" href="admin_page.php">Admin Dashboard</a></li>
+            <li><a class="active" href="admin_page.php">Dashboard</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="logout.php">logout</a></li>
         </ul>
@@ -45,7 +45,8 @@ if(!isset($_SESSION['email'])){
             </ul>
         </div>
         <div class="main-content">
-            <h1 style="alignment:center;">Welcome to the Admin Dashboard</h1>
+
+
         </div>
     </div>
 </body>

@@ -70,44 +70,7 @@ if(isset($_SESSION['email'])){
                     <input type="text" id="address" name="address" required>
                 </section>
 
-                <section>
-                    <h3>Child Information</h3>
-                    <label for="child-name">Child's Name:</label>
-                    <input type="text" id="child-name" name="child-name" required>
-                    <br>
-                    <label for="child-age">Child's Age:</label>
-                    <input type="number" id="child-age" name="child-age" required>
-                    <br><br>
-                    <label for="child-gender">Child's Gender:</label>
-                    <br>
-                    <select id="child-gender" name="child-gender" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    <br>
-                </section>
-                <br>
-                <section>
-                    <h3>Adoption Preferences</h3>
-                    <br>
-                    <label for="adoption-type">Type of Adoption:</label>
-                    <br>
-                    <select id="adoption-type" name="adoption-type" required>
-                        <option value="domestic">Domestic Adoption</option>
-                        <option value="international">International Adoption</option>
-                    </select>
-                    <br><br>
-                    <label for="adoption-reason">Reason for Adoption:</label>
-                    <textarea id="adoption-reason" name="adoption-reason" required></textarea>
-                </section>
-
-                <section>
-                    <h3>Additional Information</h3>
-                    <label for="additional-info">Any additional information you'd like to provide:</label>
-                    <textarea id="additional-info" name="additional-info"></textarea>
-                </section>
-                <input type="submit" name="donate" value="SUBMIT">
-            </form>
+              
         </div>
 </body>
 

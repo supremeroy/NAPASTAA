@@ -777,9 +777,7 @@ input {
 
 .sidebar li a:hover {
   color: #fbfbfb;
-  margin: 5px;
 }
-
 .main-content {
   width: calc(100% - 250px);
   padding: 20px;

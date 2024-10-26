@@ -75,7 +75,7 @@ if(isset($_POST['submit'])){
                };
             };
             ?>
-            <p>Enter your email<sup>*</sup></p>
+            <p>Enter email<sup>*</sup></p>
             <input type="email" name="email" required placeholder="email">
             <p>Enter password<sup>*</sup></p>
             <input type="password" name="password" required placeholder="password">
