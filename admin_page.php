@@ -69,24 +69,25 @@ if (!$result) {
                 </thead>
                 <tbody>
                     <?php
-                    // Loop through the results and output each row in the table
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['id']) . "</td>"; // Assuming 'id' is a column in your table
-                        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['email']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['phone']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['address']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['child_name']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['child_age']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['child_gender']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['creation_date']) . "</td>"; // Assuming 'creation_date' is a column
-                        echo "</tr>";
-                    }
-                    ?>
+            // Loop through the results and output each row in the table
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['id'] . "</td>"; // Assuming 'id' is a column in your table
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['phone'] . "</td>";
+                echo "<td>" . $row['address'] . "</td>";
+                echo "<td>" . $row['child_name'] . "</td>";
+                echo "<td>" . $row['child_age'] . "</td>";
+                echo "<td>" . $row['child_gender'] . "</td>";
+                echo "<td>" . $row['creation_date'] . "</td>"; // Assuming 'creation_date' is a column
+                echo "</tr>";
+            }
+            ?>
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
 
 

@@ -32,11 +32,19 @@ if (isset($_POST['adopt'])) {
     $stmt = "INSERT INTO adoption_applications (name, email, phone, address, child_name, child_age, child_gender, child_picture, household_members, ages_relationships, employment_status, occupation, income, home_type, space_for_child, neighborhood_environment, `references`, motivation_statement, background_check, child_abuse_clearance, creation_date) VALUES ('$name', '$email', '$phone', '$address', '$child_name', '$child_age', '$child_gender', '$child_picture', '$household_members', '$ages_relationships', '$employment_status', '$occupation', '$income', '$home_type', '$space_for_child', '$neighborhood_environment', '$references', '$motivation_statement', '$background_check', '$child_abuse_clearance', '$creation_date')";
 
     
-    // Use the correct variable name here
     if (!mysqli_query($conn, $stmt)) {
         echo "Error: " . $stmt . "<br>" . mysqli_error($conn);
     }
 }
+
+$query = "SELECT * FROM adoption_applications";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    echo "Error fetching data: " . mysqli_error($conn);
+    exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -199,6 +207,45 @@ if (isset($_POST['adopt'])) {
                         Details being processed, Thank you.</div>
                 </div>
             </form>
+            <br>
+            <br>
+            <br>
+            <div class="main-content">
+                <h2>Adoption Applications</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Child's Name</th>
+                            <th>Child's Age</th>
+                            <th>Child's Gender</th>
+                            <th>Creation Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+            // Loop through the results and output each row in the table
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['id'] . "</td>"; // Assuming 'id' is a column in your table
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['email'] . "</td>";
+                echo "<td>" . $row['phone'] . "</td>";
+                echo "<td>" . $row['address'] . "</td>";
+                echo "<td>" . $row['child_name'] . "</td>";
+                echo "<td>" . $row['child_age'] . "</td>";
+                echo "<td>" . $row['child_gender'] . "</td>";
+                echo "<td>" . $row['creation_date'] . "</td>"; // Assuming 'creation_date' is a column
+                echo "</tr>";
+            }
+            ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 </body>
 

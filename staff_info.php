@@ -1,3 +1,42 @@
+<?php
+@include 'config.php';
+session_start();
+if (isset($_SESSION['email'])) {
+    // User is logged in
+} else {
+    header('location:login_form.php');
+    exit;
+}
+
+// Check if the form for adding a new staff member has been submitted
+if (isset($_POST['add_staff'])) {
+    // Get the form data
+    $name = $_POST['name'];
+    $id_number = $_POST['id_number'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $job_title = $_POST['job_title'];
+    $department = $_POST['department'];
+    $supervisor = $_POST['supervisor'];
+    $employment_date = $_POST['employment_date'];
+    $employment_status = $_POST['employment_status'];
+    $work_shift = $_POST['work_shift'];
+    $education_level = $_POST['education_level'];
+    $certifications = $_POST['certifications'];
+    $skills = $_POST['skills'];
+
+    // Insert the new staff member into the database
+    $sql = "INSERT INTO staff_info (name, id_number, dob, gender, phone, email, job_title, department, supervisor, employment_date, employment_status, work_shift, education_level, certifications, skills) 
+            VALUES ('$name', '$id_number', '$dob', '$gender', '$phone', '$email', '$job_title', '$department', '$supervisor', '$employment_date', '$employment_status', '$work_shift', '$education_level', '$certifications', '$skills')";
+
+
+}
+// Retrieve data from staff_info table
+$sql = "SELECT * FROM staff_info";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,78 +75,142 @@
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="h2title">STAFF INFORMATION</h2>
-        <?php
-// Configuration
-$db_host = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$db_name = 'napastaa_db';
 
-// Create connection
-$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+        <form action="" method="post">
+            <h2 class="h2title">Add Staff Information</h2>
+            <div class="successful"
+                style="<?php if (isset($_POST['add_staff'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                <div
+                    style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                    New staff member added successfully.</div>
+            </div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
 
-// Retrieve data from staff_info table
-$sql = "SELECT * FROM staff_info";
-$result = $conn->query($sql);
+            <label for="id_number">ID Number:</label>
+            <input type="text" id="id_number" name="id_number" required><br><br>
 
-if ($result->num_rows > 0) {
-    // Display data in a table format
-    echo "<table border='1'>";
-    echo "<tr>";
-    echo "<th>ID</th>";
-    echo "<th>Name</th>";
-    echo "<th>ID Number</th>";
-    echo "<th>Date of Birth</th>";
-    echo "<th>Gender</th>";
-    echo "<th>Phone</th>";
-    echo "<th>Email</th>";
-    echo "<th>Job Title</th>";
-    echo "<th>Department</th>";
-    echo "<th>Supervisor</th>";
-    echo "<th>Employment Date</th>";
-    echo "<th>Employment Status</th>";
-    echo "<th>Work Shift</th>";
-    echo "<th>Education Level</th>";
-    echo "<th>Certifications</th>";
-    echo "<th>Skills</th>";
-    echo "</tr>";
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required><br><br>
 
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row["id"]. "</td>";
-        echo "<td>" . $row["name"]. "</td>";
-        echo "<td>" . $row["id_number"]. "</td>";
-        echo "<td>" . $row["dob"]. "</td>";
-        echo "<td>" . $row["gender"]. "</td>";
-        echo "<td>" . $row["phone"]. "</td>";
-        echo "<td>" . $row["email"]. "</td>";
-        echo "<td>" . $row["job_title"]. "</td>";
-        echo "<td>" . $row["department"]. "</td>";
-        echo "<td>" . $row["supervisor"]. "</td>";
-        echo "<td>" . $row["employment_date"]. "</td>";
-        echo "<td>" . $row["employment_status"]. "</td>";
-        echo "<td>" . $row["work_shift"]. "</td>";
-        echo "<td>" . $row["education_level"]. "</td>";
-        echo "<td>" . $row["certifications"]. "</td>";
-        echo "<td>" . $row["skills"]. "</td>";
-        echo "</tr>";
-    }
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select><br><br>
 
-    echo "</table>";
-} else {
-    echo "0 results";
-}
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br><br>
 
-// Close connection
-$conn->close();
-?>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="job_title">Job Title:</label>
+            <input type="text" id="job_title" name="job_title" required><br><br>
+
+            <label for="department">Department:</label>
+            <input type="text" id="department" name="department" required><br><br>
+
+            <label for="supervisor">Supervisor:</label>
+            <input type="text" id="supervisor" name="supervisor" required><br><br>
+
+            <label for="employment_date">Employment Date:</label>
+            <input type="date" id="employment_date" name="employment_date" required><br><br>
+
+            <label for="employment_status">Employment Status:</label>
+            <select id="employment_status" name="employment_status" required>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+                <option value="Terminated">Terminated</option>
+            </select><br><br>
+
+            <label for="work_shift">Work Shift:</label>
+            <select id="work_shift" name="work_shift" required>
+                <option value="Day">Day</option>
+                <option value="Night">Night</option>
+            </select><br><br>
+
+            <label for="education_level">Education Level:</label>
+            <input type="text" id="education_level" name="education_level" required><br><br>
+
+            <label for="certifications">Certifications:</label>
+            <input type="text" id="certifications" name="certifications"><br><br>
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" name="skills"><br><br>
+
+            <input type="submit" name="add_staff" value="Add Staff">
+            <br>
+            <div class="successful"
+                style="<?php if (isset($_POST['add_staff'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                <div
+                    style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                    New staff member added successfully.</div>
+            </div>
+        </form>
     </div>
+</div>
+<?php
+       $tableHTML = "<table border='1' font-size='1px'>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>ID Number</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Job Title</th>
+    <th>Department</th>
+    <th>Supervisor</th>
+    <th>Employment Date</th>
+    <th>Employment Status</th>
+    <th>Work Shift</th>
+    <th>Education Level</th>
+    <th>Certifications</th>
+    <th>Skills</th>
+    <th>Action</th>
+</tr>";
+
+// Fetch rows and append to table HTML
+while ($row = $result->fetch_assoc()) {
+$tableHTML .= "<tr>
+    <td>" . $row["id"] . "</td>
+    <td>" . $row["name"] . "</td>
+    <td>" . $row["id_number"] . "</td>
+    <td>" . $row["dob"] . "</td>
+    <td>" . $row["gender"] . "</td>
+    <td>" . $row["phone"] . "</td>
+    <td>" . $row["email"] . "</td>
+    <td>" . $row["job_title"] . "</td>
+    <td>" . $row["department"] . "</td>
+    <td>" . $row["supervisor"] . "</td>
+    <td>" . $row["employment_date"] . "</td>
+    <td>" . $row["employment_status"] . "</td>
+    <td>" . $row["work_shift"] . "</td>
+    <td>" . $row["education_level"] . "</td>
+    <td>" . $row["certifications"] . "</td>
+    <td>" . $row["skills"] . "</td>
+ <td>
+    <a href='edit_staff.php?id=" . $row['id'] . "' class='edit-link'>Edit</a> 
+    <br><br> <!-- Added an extra <br> for separation -->
+    <a href='delete_staff.php?id=" . $row['id'] . "' class='delete-link' onclick=\"return confirm('Are you sure you want to delete this staff?');\">Delete</a>
+</td>
+</tr>";
+}
+
+// Close the table HTML
+$tableHTML .= "</table>";
+
+// Output the table
+echo $tableHTML;
+
+        // Close connection
+        $conn->close();
+        ?>
+</div>
 
 </html>
 </body>

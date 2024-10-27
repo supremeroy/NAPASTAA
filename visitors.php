@@ -57,6 +57,7 @@ mysqli_close($conn);
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
                 <li><a href="staff_info.php">Staff Information</a></li>
+
             </ul>
         </div>
         <div class="main-content">
@@ -72,6 +73,7 @@ mysqli_close($conn);
                         <th>Visit Time</th>
                         <th>Purpose of Visit</th>
                         <th>Comment</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody id="visitors-tbody">
@@ -85,6 +87,10 @@ mysqli_close($conn);
                         <td><?= $visitor['visit_time'] ?></td>
                         <td><?= $visitor['purpose'] ?></td>
                         <td><?= $visitor['comments'] ?></td>
+                        <td>
+                            <a href='edit_child.php?id=" . $row[' id'] . "' class='edit-link'>Aprove</a> <br> <br>
+                        <a href='delete_child.php?id=" . $row['id'] . "' class='delete-link'>Decline</a>
+                        </td>
                     </tr>
                     <?php } ?>
                 </tbody>

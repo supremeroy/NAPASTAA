@@ -3,24 +3,39 @@
 
 session_start();
 
-if(isset($_SESSION['email'])){
+if (isset($_SESSION['email'])) {
+    // User is logged in
 } else {
-   header('location:login_form.php');
-   exit;
+    header('location:login_form.php');
+    exit;
 }
 
-// Add a new child to the database
+// Check if the form for adding a new child has been submitted
 if (isset($_POST['add_child'])) {
+    // Get the form data
     $child_name = $_POST['child_name'];
-    $child_age = $_POST['child_age'];
+    $child_age = (int)$_POST['child_age'];
     $child_gender = $_POST['child_gender'];
+    $date_of_birth = $_POST['date_of_birth'];
+    $medical_history = $_POST['medical_history'];
+    $admission_date = $_POST['admission_date'];
 
-    $sql = "INSERT INTO children (child_name, child_age, child_gender) VALUES ('$child_name', '$child_age', '$child_gender')";
-    if (mysqli_query($conn, $sql)) {
-        echo "Child added successfully!";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
+    // Insert the new child into the database
+    $sql = "INSERT INTO children (child_name, child_age, child_gender, date_of_birth, medical_history, admission_date) 
+            VALUES ('$child_name', $child_age, '$child_gender', '$date_of_birth', '$medical_history', '$admission_date')";
+
+   
+}
+
+// Default query to fetch all children
+$sql = "SELECT * FROM children";
+
+// Execute the query
+$result = mysqli_query($conn, $sql);
+
+// Check if the query was successful
+if (!$result) {
+    die("Query failed: " . mysqli_error($conn));
 }
 ?>
 
@@ -59,57 +74,89 @@ if (isset($_POST['add_child'])) {
         <div class="main-content">
             <h2 class="h2title">Childrens information</h2>
 
-            <!-- Create a form to add a new child -->
+
 
             <form action="" method="post">
-                <h2>Add a New Child</h2>
+
+                <h2 style="text-align: center;">Add a New Child</h2>
+                <div class="successful"
+                    style="<?php if (isset($_POST['add_child'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                    <div
+                        style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                        Details have been added.</div>
+                </div>
                 <br>
+
                 <label for="child_name">Child Name:</label>
                 <input type="text" id="child_name" name="child_name" required><br><br>
+
                 <label for="child_age">Child Age:</label>
                 <input type="number" id="child_age" name="child_age" required><br><br>
+
                 <label for="child_gender">Child Gender:</label>
-                <select id="child_gender" name="child_gender">
+                <select id="child_gender" name="child_gender" required>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
+                    <option value="Other">Other</option>
                 </select><br><br>
+
+                <label for="date_of_birth">Date of Birth:</label>
+                <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+
+
+                <label for="medical_history">Medical History:</label>
+                <textarea id="medical_history" name="medical_history" rows="4" cols="50" required></textarea><br><br>
+
+                <label for="admission_date">Admission Date:</label>
+                <input type="date" id="admission_date" name="admission_date" required><br><br>
+
                 <input type="submit" name="add_child" value="Add Child">
+                <br>
+                <div class="successful"
+                    style="<?php if (isset($_POST['add_child'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                    <div
+                        style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                        Details have been added.</div>
+                </div>
             </form>
-
-
-
-            <!-- Display a table of children in the children's home -->
-            <h2>Children in the Children's Home</h2>
-            <table border='1'>
+            <table>
                 <tr>
-                    <th>Child Name</th>
-                    <th>Child Age</th>
-                    <th>Child Gender</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Date of Birth</th>
+                    <th>Medical History</th>
+                    <th>Admission Date</th>
+                    <th>Action</th>
                 </tr>
-
                 <?php
-        $sql = "SELECT * FROM children";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row['child_name'] . "</td>";
-                echo "<td>" . $row['child_age'] . "</td>";
-                echo "<td>" . $row['child_gender'] . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No children found.</td></tr>";
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<tr>
+                    <td>" . $row['child_name'] . "</td>
+                    <td>" . $row['child_age'] . "</td>
+                    <td>" . $row['child_gender'] . "</td>
+                    <td>" . $row['date_of_birth'] . "</td>
+                    <td>" . $row['medical_history'] . "</td>
+                    <td>" . $row['admission_date'] . "</td>
+                    <td>
+                        <a href='edit_child.php?id=" . $row['id'] . "' class='edit-link'>Edit</a> | 
+                        <a href='delete_child.php?id=" . $row['id'] . "' class='delete-link' onclick=\"return confirm('Are you sure you want to delete this child?');\">Delete</a>
+                    </td>
+                </tr>";
         }
-        ?>
-
+    } else {
+        echo "<tr>
+                <td colspan='7'>No records found</td>
+              </tr>";
+    }
+    ?>
             </table>
 
             <?php
-    // Close database connection
-    mysqli_close($conn);
-    ?>
+            // Close database connection
+            mysqli_close($conn);
+            ?>
         </div>
 </body>
 
