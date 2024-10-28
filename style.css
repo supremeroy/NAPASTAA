@@ -719,8 +719,7 @@ input {
 }
 
 .imgv2 {
-  width: 700px;
-  height: 500px;
+  width: 50vw;
 }
 /***** End VISIT FORM *****/
 
@@ -781,3 +780,10 @@ input {
   padding: 20px;
 }
 /***** End ADMIN SIDE PANEL *****/
+
+/***** admin background img *****/
+.admin-back img {
+  border-radius: 5px;
+  width: 27vw;
+}
+/***** End admin background img *****/

@@ -63,6 +63,12 @@ if (!mysqli_query($conn, $sql)) {
             <p class="pd">Thank you for your contribution to the well being of Children in our center</p>
         </div>
         <form class="form_donation" action="" method="post">
+            <div class="successful"
+                style="<?php if (isset($_POST['donate'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
+                <div
+                    style="border-radius: 5px; text-align: center; background-color: yellow; padding: 20px; border: 1px solid black;">
+                    Donation is being processed. Thank you for your contribution!</div>
+            </div>
             <h2>Make a Donation</h2>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
@@ -127,7 +133,8 @@ if (!mysqli_query($conn, $sql)) {
             <br>
 
             <!--link to display the terms and conditions -->
-            <label for="user_agreement"><input type="checkbox" name="user_agreement" value="1" required> I agree to the
+            <label for="user_agreement"><input type="checkbox" name="user_agreement" value="1" required
+                    style="width:auto;"> I agree to the
                 <a href="#" id="terms-link" onclick="showTerms()">Terms and Conditions</a>:</label>
             <br>
 

@@ -31,6 +31,7 @@ if (!$result) {
 </head>
 
 <body>
+
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
@@ -52,6 +53,7 @@ if (!$result) {
             </ul>
         </div>
         <div class="main-content">
+
             <h2>Adoption Applications</h2>
             <table border="1">
                 <thead>
@@ -87,6 +89,7 @@ if (!$result) {
                 </tbody>
             </table>
         </div>
+    </div>
     </div>
     </div>
 

@@ -70,6 +70,10 @@ if (mysqli_num_rows($result) > 0) {
     <th>Donation amount</th>
     <th>payment method</th>
     <th>Mpesa Phone No</th>
+    <th>bank_name</th>
+    <th>bank_account_number</th>
+    <th>bank_branch</th>
+    <th>paypal_email</th>
     <th>dedication</th>
     </tr>"; 
     while($row = mysqli_fetch_assoc($result)) {
@@ -80,7 +84,12 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row["donation_amount"] . "</td>";
         echo "<td>" . $row["payment_method"] . "</td>";
         echo "<td>" . $row["mpesa_phone_number"] ."</td>";
+        echo "<td>" . $row["bank_name"] . "</td>";
+        echo "<td>" . $row["bank_account_number"] . "</td>";
+        echo "<td>" . $row["bank_branch"] . "</td>";
+         echo "<td>" . $row["paypal_email"] ."</td>"; 
         echo "<td>" . $row["dedication"] . "</td>";
+     
         echo "</tr>";
     }
     echo "</table>";

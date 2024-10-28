@@ -65,25 +65,26 @@ if(isset($_POST['submit'])){
     </nav>
 
     <div class="form-container">
-
-        <form action="" method="post">
-            <h3>Admin Login</h3>
-            <?php
+        <div class="admin-back">
+            <img src="images/1.jpg" alt="children photo in sunset">
+            <form action="" method="post" style="margin-top: 0px;">
+                <h3>Admin Login</h3>
+                <?php
             if(isset($error)){
                foreach($error as $error){
                   echo '<span class="error-msg">'.$error.'</span>';
                };
             };
             ?>
-            <p>Enter email<sup>*</sup></p>
-            <input type="email" name="email" required placeholder="email">
-            <p>Enter password<sup>*</sup></p>
-            <input type="password" name="password" required placeholder="password">
-            <input type="submit" name="submit" value="login now" class="form-btn">
-        </form>
+                <p>Enter email<sup>*</sup></p>
+                <input type="email" name="email" required placeholder="email">
+                <p>Enter password<sup>*</sup></p>
+                <input type="password" name="password" required placeholder="password">
+                <input type="submit" name="submit" value="login now" class="form-btn">
+            </form>
 
+        </div>
     </div>
-
 </body>
 
 </html>

@@ -1,8 +1,5 @@
 <?php
 @include 'config.php';
-
-
-
 ?>
 
 
@@ -43,7 +40,7 @@ $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
   echo "<table>";
-  echo "<tr><th>ID</th><th>Event Title</th><th>Event Date</th><th>Event Description</th><th>Event Image</th><th>Attend</th></tr>";
+  echo "<tr><th>ID</th><th>Event Title</th><th>Event Date</th><th>Event Description</th><th>Event Image</th></tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     $event_id = $row['id'];
     $event_title = $row['event_title'];
@@ -56,7 +53,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "<td>$event_date</td>";
     echo "<td>$event_description</td>";
     echo "<td><img src='$event_image' alt='$event_title' class='event-image'></td>";   
-    echo "<td><button class='attend-btn' data-event-id='$event_id'>Attend Event</button></td>";
+  
     echo "</tr>";
   }
   echo "</table>";
