@@ -28,14 +28,13 @@
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
-</body>
 
-</html>
+    <br>
+    <h2 class="h2title">Upcoming events</h1>
 
-<h2 class="h2title">Upcoming events</h1>
-    <?php 
+        <?php 
 // Query to retrieve upcoming events
-$query = "SELECT * FROM upcoming_events WHERE completed = 0 ORDER BY event_date ASC";
+$query = "SELECT * FROM upcoming_events";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -68,4 +67,7 @@ mysqli_close($conn);
 
 
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

@@ -4,6 +4,29 @@ session_start();
 if(!isset($_SESSION['email'])){
    header('location:login_form.php');
 }
+// Queries to count each category
+$donations_query = "SELECT COUNT(*) as count FROM donations"; // Adjust table name as necessary
+$events_query = "SELECT COUNT(*) as count FROM upcoming_events"; // Adjust table name as necessary
+$visitors_query = "SELECT COUNT(*) as count FROM visitors"; // Adjust table name as necessary
+$adoption_forms_query = "SELECT COUNT(*) as count FROM adoption_applications"; // Adjust table name as necessary
+$children_query = "SELECT COUNT(*) as count FROM children"; // Adjust table name as necessary
+$staff_info_query = "SELECT COUNT(*) as count FROM staff_info"; // Adjust table name as necessary
+
+// Execute queries
+$donations_result = mysqli_query($conn, $donations_query);
+$events_result = mysqli_query($conn, $events_query);
+$visitors_result = mysqli_query($conn, $visitors_query);
+$adoption_forms_result = mysqli_query($conn, $adoption_forms_query);
+$children_result = mysqli_query($conn, $children_query);
+$staff_info_result = mysqli_query($conn, $staff_info_query);
+
+// Fetch counts
+$donations_count = mysqli_fetch_assoc($donations_result)['count'];
+$events_count = mysqli_fetch_assoc($events_result)['count'];
+$visitors_count = mysqli_fetch_assoc($visitors_result)['count'];
+$adoption_forms_count = mysqli_fetch_assoc($adoption_forms_result)['count'];
+$children_count = mysqli_fetch_assoc($children_result)['count'];
+$staff_info_count = mysqli_fetch_assoc($staff_info_result)['count'];
 
 $query = "SELECT * FROM adoption_applications";
 $result = mysqli_query($conn, $query);
@@ -36,7 +59,10 @@ if (!$result) {
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a class="active" href="admin_page.php">Dashboard</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
+            <li><button class="print" onclick="printTable()">
+                    PRINT REPORT
+                </button></li>
+
             <li><a href="logout.php">logout</a></li>
         </ul>
     </nav>
@@ -45,7 +71,7 @@ if (!$result) {
             <ul>
                 <li><a class="active" href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
@@ -53,8 +79,36 @@ if (!$result) {
             </ul>
         </div>
         <div class="main-content">
+            <h2 class="h2title">Counts Overview</h2>
+            <div class="dashboard-stats">
+                <div class="stat-item">
+                    <h3>Donations -> </h3>
+                    <p><?php echo $donations_count; ?></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Upcoming Events -> </h3>
 
-            <h2>Adoption Applications</h2>
+                    <p> <?php echo $events_count; ?></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Visitors -> </h3>
+                    <p><?php echo $visitors_count; ?></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Adoption Forms -> </h3>
+                    <p> <?php echo $adoption_forms_count; ?></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Children -> </h3>
+                    <p><?php echo $children_count; ?></p>
+                </div>
+                <div class="stat-item">
+                    <h3>Staff -> </h3>
+                    <p><?php echo $staff_info_count; ?></p>
+                </div>
+
+            </div>
+            <h2 class="h2title">Adoption Applications</h2>
             <table border="1">
                 <thead>
                     <tr>
@@ -89,6 +143,9 @@ if (!$result) {
                 </tbody>
             </table>
         </div>
+
+
+
     </div>
     </div>
     </div>
@@ -96,6 +153,11 @@ if (!$result) {
 
     </div>
     </div>
+    <script>
+    function printTable() {
+        window.print();
+    }
+    </script>
 </body>
 
 </html>

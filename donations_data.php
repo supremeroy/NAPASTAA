@@ -37,8 +37,8 @@ mysqli_close($conn);
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="admin_page.php"> Admin HOME</a></li>
             <li><a class="active" href="#"> Donations Data</a></li>
+
             <li> <a href="logout.php" class="btn">logout</a></li>
         </ul>
     </nav>
@@ -50,7 +50,7 @@ mysqli_close($conn);
             <ul>
                 <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a class="active" href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
@@ -100,13 +100,18 @@ if (mysqli_num_rows($result) > 0) {
 
 
         </div>
+        <h2 class="h2title">Processed Donations</h2>
+
+
     </div>
 
 
 
 
 
-    <h2 class="h2title">Processed Donations</h2>
+
+
+
 </body>
 
 </html>

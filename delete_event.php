@@ -3,7 +3,7 @@ session_start();
 
 @include 'config.php';
 
-if(isset($_SESSION['admin_name'])){
+if(isset($_SESSION['email'])){
    // admin is logged in, allow access to the page
 } else {
    header('location:login_form.php');

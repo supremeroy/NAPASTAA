@@ -40,7 +40,6 @@ mysqli_close($conn);
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="admin_page.php"> Admin HOME</a></li>
             <li><a class="active" href="#"> VISITORS</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>
         </ul>
@@ -52,7 +51,7 @@ mysqli_close($conn);
             <ul>
                 <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a class="active" href="visitors.php">Visitors</a></li>
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
@@ -61,7 +60,7 @@ mysqli_close($conn);
             </ul>
         </div>
         <div class="main-content">
-            <h2 class="h2title">Visitors</h2>
+            <h2 class="h2title">requests to visit napastaa heimen</h2>
             <table id="visitors-table">
                 <thead>
                     <tr>
@@ -73,7 +72,8 @@ mysqli_close($conn);
                         <th>Visit Time</th>
                         <th>Purpose of Visit</th>
                         <th>Comment</th>
-                        <th>Status</th>
+
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="visitors-tbody">
@@ -87,9 +87,12 @@ mysqli_close($conn);
                         <td><?= $visitor['visit_time'] ?></td>
                         <td><?= $visitor['purpose'] ?></td>
                         <td><?= $visitor['comments'] ?></td>
+
                         <td>
-                            <a href='edit_child.php?id=" . $row[' id'] . "' class='edit-link'>Aprove</a> <br> <br>
-                        <a href='delete_child.php?id=" . $row['id'] . "' class='delete-link'>Decline</a>
+                            <a href='process_request.php?id=<?php echo $row['id']; ?>&action=approve'
+                                class='edit-link'>Approve</a> <br> <br>
+                            <a href='process_request.php?id=<?php echo $row['id']; ?>&action=decline'
+                                class='delete-link'>Decline</a>
                         </td>
                     </tr>
                     <?php } ?>

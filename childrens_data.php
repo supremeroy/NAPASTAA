@@ -53,18 +53,17 @@ if (!$result) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="user_page.php">Donor Home</a></li>
-            <li><a href="donation.php">Donate</a></li>
+            <li><a class="active" href="childrens_data.php">Childrens Data</a></li>
             <li><a href="logout.php" class="btn">Logout</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
 
     <div class="dashboard">
         <div class="sidebar">
             <ul>
+                <li><a href="user_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a class="active" href="childrens_data.php">Children's Data</a></li>

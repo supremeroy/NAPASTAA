@@ -1,16 +1,11 @@
 <?php
-// Connect to database
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "napastaa_db";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+@include 'config.php';
+session_start();
+if (!isset($_SESSION['email'])) {
+    echo "Session email not set. Redirecting to login.";
+    header('location:login_form.php');
+    exit;
 }
-
 // Get the event ID from the URL parameter
 $event_id = $_GET['id'];
 

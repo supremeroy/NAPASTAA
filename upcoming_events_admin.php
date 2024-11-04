@@ -1,13 +1,6 @@
 <?php
-// Database connection
-$mysqli = new mysqli("localhost", "root", "", "napastaa_db");
 
-// Check connection
-if ($mysqli->connect_error) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-// Start session
+@include 'config.php';
 session_start();
 if (!isset($_SESSION['email'])) {
     header('location:login_form.php');
@@ -19,7 +12,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $eventName = isset($_POST['event_title']) ? trim($_POST['event_title']) : '';
     $eventDate = isset($_POST['event_date']) ? $_POST['event_date'] : ''; 
     $eventDescription = isset($_POST['event_description']) ? trim($_POST['event_description']) : ''; 
-    $eventImage = isset($_POST['event_image']) ? $_POST['event_image'] : ''; 
+    $eventImage = $_FILES['event_image']; 
+}// Use $_FILES to get the uploaded file
+
+    // Check if event description is empty
+    if (empty($eventDescription)) {
+        echo "";
+    } else {
+        // Check if the image was uploaded without errors
+        if ($eventImage['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = 'uploads/'; // Directory where images will be uploaded
+            $uploadFile = $uploadDir . basename($eventImage['name']);
+        }
+            // Move the uploaded file to the designated directory
+            if (move_uploaded_file($eventImage['tmp_name'], $uploadFile)) {
+            }
 
     // Check if event description is empty
     if (empty($eventDescription)) {
@@ -27,14 +34,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Prepare the SQL statement
         $stmt = $mysqli->prepare("INSERT INTO upcoming_events (event_title, event_date, event_description, event_image) VALUES (?, ?, ?, ?)");
-        
+        if (!$stmt) {
+            die("Prepare failed: " . $mysqli->error);
+        }
+
         // Correctly bind the parameters
         $stmt->bind_param("ssss", $eventName, $eventDate, $eventDescription, $eventImage);
 
-      
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo "New event created successfully.";
+        } else {
+            echo "Error: " . $stmt->error; 
+        }
+
+        // Close the statement
         $stmt->close();
     }
-
 }
 
 // Retrieve events from the database
@@ -59,9 +75,7 @@ if (!$result) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="admin_page.php">ADMIN HOME</a></li>
             <li><a class="active" href="upcoming_events_admin.php">UPCOMING EVENTS</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
             <li><a href="logout.php">LOGOUT</a></li>
         </ul>
     </nav>
@@ -71,7 +85,7 @@ if (!$result) {
             <ul>
                 <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
-                <li><a class="active" href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a class="active" href="upcoming_events_admin.php">Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
                 <li><a href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
@@ -96,7 +110,7 @@ if (!$result) {
                 <label for="event_image">Event Image:</label>
                 <input type="file" id="event_image" name="event_image" required><br><br>
 
-                <input type="submit" value="posted_event" name="posted_event" id="post_event">
+                <input type="submit" value="post event" name="posted_event" id="post_event">
                 <br>
 
                 <div class="successful"
@@ -110,7 +124,6 @@ if (!$result) {
         </div>
         </form>
         <br><br>
-        <h2 style="text-align: center;">Upcoming Events</h2>
         <table>
             <tr>
                 <th>ID</th>
@@ -118,7 +131,6 @@ if (!$result) {
                 <th>Event Date</th>
                 <th>Event Description</th>
                 <th>Event Image</th>
-                <th>Completed</th>
                 <th>Actions</th>
             </tr>
             <?php while($row = mysqli_fetch_assoc($result)) { ?>
@@ -127,14 +139,17 @@ if (!$result) {
                 <td><?php echo $row['event_title']; ?></td>
                 <td><?php echo $row['event_date']; ?></td>
                 <td><?php echo $row['event_description']; ?></td>
-                <td><img src="<?php echo $row['event_image']; ?>" width="150" height="100" style="border-radius: 5px;">
-                </td>
                 <td>
-                    <input type="checkbox" name="completed" value="<?php echo $row['id']; ?>"
-                        <?php if($row['completed'] == 1) echo "checked"; ?>>
+                    <?php
+    $imageSrc = $row['event_image'];
+    echo "<img src='$imageSrc' width='150' height='100' style='border-radius: 5px;'>";
+    echo "<p>$imageSrc</p>"; // Debugging line to print the image URL
+    ?>
                 </td>
+
                 <td>
                     <a href="edit_event.php?id=<?php echo $row['id']; ?>" class="edit-link">Edit</a>
+                    |
                     <a href="delete_event.php?id=<?php echo $row['id']; ?>" class="delete-link">Delete</a>
                 </td>
             </tr>
@@ -142,7 +157,6 @@ if (!$result) {
         </table>
 
     </div>
-
-</body>
-
+    </div>
+</bodybody
 </html>

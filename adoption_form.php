@@ -37,13 +37,7 @@ if (isset($_POST['adopt'])) {
     }
 }
 
-$query = "SELECT * FROM adoption_applications";
-$result = mysqli_query($conn, $query);
 
-if (!$result) {
-    echo "Error fetching data: " . mysqli_error($conn);
-    exit;
-}
 
 ?>
 <!DOCTYPE html>
@@ -64,9 +58,8 @@ if (!$result) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="admin_page.php"> Admin HOME</a></li>
             <li><a class="active" href="#"> Adoption</a></li>
-            <li><a href="complete_adoptions.php"></a></li>
+            <li><a href="complete_adoptions.php">PROCESSED ADOPTIONS</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>
         </ul>
     </nav>
@@ -78,7 +71,7 @@ if (!$result) {
 
                 <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
-                <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+                <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
                 <li><a class="active" href="adoption_form.php">Adoption Form</a></li>
                 <li><a href="childrens_data.php">Children's Data</a></li>
@@ -210,42 +203,8 @@ if (!$result) {
             <br>
             <br>
             <br>
-            <div class="main-content">
-                <h2>Adoption Applications</h2>
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Address</th>
-                            <th>Child's Name</th>
-                            <th>Child's Age</th>
-                            <th>Child's Gender</th>
-                            <th>Creation Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-            // Loop through the results and output each row in the table
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>"; // Assuming 'id' is a column in your table
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "<td>" . $row['phone'] . "</td>";
-                echo "<td>" . $row['address'] . "</td>";
-                echo "<td>" . $row['child_name'] . "</td>";
-                echo "<td>" . $row['child_age'] . "</td>";
-                echo "<td>" . $row['child_gender'] . "</td>";
-                echo "<td>" . $row['creation_date'] . "</td>"; // Assuming 'creation_date' is a column
-                echo "</tr>";
-            }
-            ?>
-                    </tbody>
-                </table>
-            </div>
+
+
         </div>
 </body>
 

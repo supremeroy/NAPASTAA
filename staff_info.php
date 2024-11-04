@@ -54,8 +54,7 @@ $result = $conn->query($sql);
 <nav>
     <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
     <ul>
-        <li><a href="admin_page.php"> Admin HOME</a></li>
-        <li><a class="active" href="#"> VISITORS</a></li>
+        <li><a class="active" href="staff_info.php"> Staff Information</a></li>
         <li> <a href="logout.php" class="btn">logout</a></li>
     </ul>
 </nav>
@@ -67,7 +66,7 @@ $result = $conn->query($sql);
 
             <li><a href="admin_page.php">Dashboard</a></li>
             <li><a href="donations_data.php">Donations</a></li>
-            <li><a href="upcoming_events_admin.php">Upcoming Events</a></li>
+            <li><a href="upcoming_events_admin.php"> Events</a></li>
             <li><a href="visitors.php">Visitors</a></li>
             <li><a href="adoption_form.php">Adoption Form</a></li>
             <li><a href="childrens_data.php">Children's Data</a></li>
