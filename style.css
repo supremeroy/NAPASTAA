@@ -350,6 +350,9 @@ h2.h2donate {
 
 .container .content {
   text-align: center;
+  background: aliceblue;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .container .content h3 {
@@ -413,6 +416,7 @@ h2.h2donate {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 8%;
 }
 
 .about-image {
@@ -438,6 +442,8 @@ h2.h2donate {
   font-size: 23px;
   margin-bottom: 15px;
   color: #333;
+  text-transform: capitalize;
+  font-weight: bolder;
 }
 .about-content p {
   font-size: 18px;
@@ -501,7 +507,7 @@ h2.h2donate {
 table {
   border-radius: 5px;
   border-collapse: collapse;
-  width: 80%;
+  width: 95%;
   margin: 20px auto;
   border: 1px solid #dddddd00;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -706,12 +712,6 @@ input {
   border-radius: 10px;
 }
 
-.pd {
-  margin-top: 20px;
-  color: black;
-  text-decoration: solid;
-  text-align: center;
-}
 /***** End DONATION IMG *****/
 
 /***** VISIT FORM *****/
@@ -751,6 +751,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .sidebar {
@@ -848,4 +849,136 @@ input {
   font-size: 16px;
 }
 
+/***** End PRINT *****/
+
+/***** FOOTER *****/
+.footer {
+  align-items: center;
+  width: 100%;
+}
+footer {
+  background-color: rgba(0, 0, 0, 0.486);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  color: white;
+}
+
+.footer-content a {
+  color: #f9fcff;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  size: 10px;
+
+  padding: 5px;
+}
+
+/***** End FOOTER *****/
+
+/***** COMPLETE LINK *****/
+.complete-link {
+  color: #ffffff;
+  background-color: rgba(0, 68, 255, 0.798);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px 18px;
+}
+
+.complete-link:hover {
+  color: white;
+  background-color: rgb(13, 193, 0);
+}
+/***** End COMPLETE *****/
+
+/***** VISITORS ACTION *****/
+form.form-approve {
+  padding: 0px;
+  border: 0px;
+  border-radius: 0px;
+  background: transparent;
+  width: fit-content;
+  font-size: medium;
+  display: contents;
+}
+/***** End VISITORS ACTION *****/
+
+/***** PROMPT *****/
+
+.prompt {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+.prompt:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/***** End PROMPT *****/
+
+/***** SEARCH *****/
+
+.search-donations {
+  width: 15%;
+  margin-left: 82%;
+}
+.search {
+  width: 100%;
+}
+.search-container {
+  text-align: right; /* Aligns the search container to the right */
+
+  margin-left: 80%;
+}
+
+.search-container input[type="text"] {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.search-container input[type="text"]:hover {
+  border: 3px solid #0063e48f;
+}
+/***** End SEARCH *****/
+
+/***** PRINT *****/
+.print-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px; /* Space below the button */
+  text-transform: uppercase;
+  margin-left: 80%;
+}
+
+.print-btn:hover {
+  background-color: #347d00;
+  color: white;
+  transition: 1s;
+  font-size: 10px;
+}
 /***** End PRINT *****/

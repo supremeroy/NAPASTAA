@@ -34,8 +34,8 @@
 
         <div class="content">
             <h3>Hello, <span>DONOR</span></h3>
-            <h3>"Welcome to Napastaa Heimen Children's Center</h3>
-            <p>Your generosity helps shape brighter futures for our children. <br> Thank you for being part of our
+            <h3>Welcome to Napastaa Heimen Children's Center</h3>
+            <p>"Your generosity helps shape brighter futures for our children. <br> Thank you for being part of our
                 mission to uplift and empower the next generation."</p>
             <a href="donation.php" class="btn">Donate</a>
             <a href="upcoming_events.php" class="btn">VIEW UPCOMING EVENTS</a>

@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     }
 }
 
-if (isset($_POST['edit_staff'])) {
+if (isset($_POST['update_staff'])) {
     $name = $_POST['name'];
     $id_number = $_POST['id_number'];
     $dob = $_POST['dob'];
@@ -58,6 +58,13 @@ if (isset($_POST['edit_staff'])) {
         skills = '$skills' 
         WHERE id = '$id'";
 
+           // Execute the query
+   if (mysqli_query($conn, $sql)) {
+    echo "<script>alert(' staff member records changed successfully!');</script>";
+} else {
+    echo "Error: " . mysqli_error($conn); // Output error if query fails
+}
+
 }
 
 $conn->close();
@@ -77,8 +84,7 @@ $conn->close();
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="admin_page.php"> Admin HOME</a></li>
-            <li><a href="visitors.php"> VISITORS</a></li>
+            <li><a href="admin_page.php"> DASHBOARD</a></li>
             <li><a href="logout.php" class="btn">logout</a></li>
         </ul>
     </nav>

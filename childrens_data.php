@@ -20,11 +20,17 @@ if (isset($_POST['add_child'])) {
     $medical_history = $_POST['medical_history'];
     $admission_date = $_POST['admission_date'];
 
+
     // Insert the new child into the database
     $sql = "INSERT INTO children (child_name, child_age, child_gender, date_of_birth, medical_history, admission_date) 
             VALUES ('$child_name', $child_age, '$child_gender', '$date_of_birth', '$medical_history', '$admission_date')";
 
-   
+    // Execute the query
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('New child added successfully!');</script>";
+    } else {
+        echo "Error: " . mysqli_error($conn); // Output error if query fails
+    }
 }
 
 // Default query to fetch all children
@@ -54,6 +60,14 @@ if (!$result) {
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a class="active" href="childrens_data.php">Childrens Data</a></li>
+            <li><a href="#view">Records</a></li>
+            <li> <a href="#">
+                    <button class="print" onclick="printChildrensRecords()">
+                        PRINT RECORDS
+                    </button>
+                </a>
+            </li>
+
             <li><a href="logout.php" class="btn">Logout</a></li>
         </ul>
     </nav>
@@ -61,7 +75,7 @@ if (!$result) {
     <div class="dashboard">
         <div class="sidebar">
             <ul>
-                <li><a href="user_page.php">Dashboard</a></li>
+                <li><a href="admin_page.php">Dashboard</a></li>
                 <li><a href="donations_data.php">Donations</a></li>
                 <li><a href="upcoming_events_admin.php"> Events</a></li>
                 <li><a href="visitors.php">Visitors</a></li>
@@ -118,8 +132,19 @@ if (!$result) {
                         Details have been added.</div>
                 </div>
             </form>
-            <table>
+            <h2 class="h2title" id="view">Childrens Records</h2>
+
+            <div class="search">
+                <div class="search-container" style="text-align: center;">
+                    <input type="text" id="childrenssearchInput" placeholder="Search childrens records..."
+                        onkeyup="searchchildrensTable()">
+                </div>
+            </div>
+
+
+            <table id="childrensTable">
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Age</th>
                     <th>Gender</th>
@@ -132,6 +157,7 @@ if (!$result) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>
+                    <td>" . $row['id'] . "</td>
                     <td>" . $row['child_name'] . "</td>
                     <td>" . $row['child_age'] . "</td>
                     <td>" . $row['child_gender'] . "</td>
@@ -157,6 +183,7 @@ if (!$result) {
             mysqli_close($conn);
             ?>
         </div>
+        <script src="script.js"></script>
 </body>
 
 </html>

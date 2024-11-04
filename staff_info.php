@@ -32,6 +32,12 @@ if (isset($_POST['add_staff'])) {
             VALUES ('$name', '$id_number', '$dob', '$gender', '$phone', '$email', '$job_title', '$department', '$supervisor', '$employment_date', '$employment_status', '$work_shift', '$education_level', '$certifications', '$skills')";
 
 
+   // Execute the query
+   if (mysqli_query($conn, $sql)) {
+    echo "<script>alert('New staff member added successfully!');</script>";
+} else {
+    echo "Error: " . mysqli_error($conn); // Output error if query fails
+}
 }
 // Retrieve data from staff_info table
 $sql = "SELECT * FROM staff_info";
@@ -55,7 +61,15 @@ $result = $conn->query($sql);
     <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
     <ul>
         <li><a class="active" href="staff_info.php"> Staff Information</a></li>
+        <li> <a href="#view"> Staff Records</a></li>
+        <li>
+            <a href="#">
+                <button class="print" onclick="printDataRecords()">
+                    PRINT RECORDS
+                </button></a>
+        </li>
         <li> <a href="logout.php" class="btn">logout</a></li>
+
     </ul>
 </nav>
 
@@ -77,7 +91,7 @@ $result = $conn->query($sql);
 
 
         <form action="" method="post">
-            <h2 class="h2title">Add Staff Information</h2>
+            <h2 class="h2title">Add Staff Member</h2>
             <div class="successful"
                 style="<?php if (isset($_POST['add_staff'])) { echo 'display: block;'; } else { echo 'display: none;'; } ?>">
                 <div
@@ -149,10 +163,23 @@ $result = $conn->query($sql);
                     New staff member added successfully.</div>
             </div>
         </form>
+
     </div>
+    <h2 class="h2title" id="view" style="width: inherit;"> Staff Records</h2>
+    <br>
+    <div class="search">
+        <div class="search-container" style="text-align: center;">
+            <input type="text" id="searchInput" placeholder="Search staff records..." onkeyup="searchTable()">
+        </div>
+    </div>
+
+
+
 </div>
 <?php
-       $tableHTML = "<table border='1' font-size='1px'>
+    
+       $tableHTML = "<table border='1' font-size='1px' id='staffTable' >
+     
 <tr>
     <th>ID</th>
     <th>Name</th>
@@ -198,6 +225,7 @@ $tableHTML .= "<tr>
     <a href='delete_staff.php?id=" . $row['id'] . "' class='delete-link' onclick=\"return confirm('Are you sure you want to delete this staff?');\">Delete</a>
 </td>
 </tr>";
+
 }
 
 // Close the table HTML
@@ -210,6 +238,9 @@ echo $tableHTML;
         $conn->close();
         ?>
 </div>
+</div>
+
+<script src="script.js"></script>
 
 </html>
 </body>

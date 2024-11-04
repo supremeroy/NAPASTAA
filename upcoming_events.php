@@ -23,7 +23,7 @@
         <ul>
             <li><a href="user_page.php"> Donor Home</a></li>
             <li><a href="donation.php">Donate</a></li>
-            <li> <a class="active" href="upcoming_events.php" class="btn">EVENTS</a></li>
+            <li> <a class="active" href="upcoming_events.php" class="btn">UPCOMING EVENTS</a></li>
             <li><a href="visit.php">Visit</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
@@ -38,20 +38,19 @@ $query = "SELECT * FROM upcoming_events";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
-  echo "<table>";
-  echo "<tr><th>ID</th><th>Event Title</th><th>Event Date</th><th>Event Description</th><th>Event Image</th></tr>";
+  echo "<table style='margin-bottom: 410px;' >";
+  echo "<tr><th>ID</th><th>Event Title</th><th>Event Date</th><th>Event Description</th></tr>";
   while ($row = mysqli_fetch_assoc($result)) {
     $event_id = $row['id'];
     $event_title = $row['event_title'];
     $event_date = $row['event_date'];
     $event_description = $row['event_description'];
-    $event_image = $row['event_image'];
     echo "<tr>";
     echo "<td>$event_id</td>";
     echo "<td>$event_title</td>";
     echo "<td>$event_date</td>";
     echo "<td>$event_description</td>";
-    echo "<td><img src='$event_image' alt='$event_title' class='event-image'></td>";   
+      
   
     echo "</tr>";
   }
@@ -64,8 +63,6 @@ mysqli_close($conn);
 
 
 ?>
-
-
 
         <script src="script.js"></script>
 </body>

@@ -60,7 +60,14 @@ if (!$result) {
             <br>
             <div class="main-content">
                 <h2 class="h2title">Adoption Applications</h2>
-                <table border="1">
+
+                <div class="search">
+                    <div class="search-container">
+                        <input type="text" id="adoptionSearchInput" placeholder="Search adoption records..."
+                            onkeyup="searchAdoptionTable()">
+                    </div>
+                </div>
+                <table id="adoptionTable">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -95,6 +102,7 @@ if (!$result) {
                 </table>
             </div>
         </div>
+        <script src="script.js"></script>
 </body>
 
 </html>

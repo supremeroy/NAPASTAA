@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2024 at 07:21 AM
+-- Generation Time: Nov 04, 2024 at 04:12 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -78,7 +78,37 @@ CREATE TABLE `adoption_applications` (
 
 INSERT INTO `adoption_applications` (`id`, `name`, `email`, `phone`, `address`, `child_name`, `child_age`, `child_gender`, `child_picture`, `household_members`, `ages_relationships`, `employment_status`, `occupation`, `income`, `home_type`, `space_for_child`, `neighborhood_environment`, `references`, `motivation_statement`, `background_check`, `child_abuse_clearance`, `creation_date`, `created_at`) VALUES
 (1, 'John Mwangi', 'johnmwangi@gmail.com', '+254784701442', '123 nairobi', 'Amani Njeri', 5, 'female', '10.jpg', '4', ' 30 (Father), 28 (Mother), 10 (Sibling), 7 (Sibling)', 'Employed', 'Teacher', 50000.00, 'Apartment', 'One bedroom', 'Safe and friendly', 'Jane  +254798765432', 'yy', 'No criminal record', 'Cleared', '2024-10-26', '2024-10-26 14:47:55'),
-(2, 'Alice Nanetia', 'alice@gmail.com', '+254743724022', '3495 Paul St', 'Aggrey Orina', 14, 'male', 'swing.jpg', '3', ' 35 (Father), 28 (Mother), 2 (Sibling)', 'Employed', 'Engineer', 500000.00, 'Apartment', 'One bedroom', 'Safe and friendly', 'Allan  +254798765432', 'i want to help children in need of a home', 'No criminal record', 'Cleared', '2024-10-26', '2024-10-26 15:02:31');
+(2, 'Alice Nanetia', 'alice@gmail.com', '+254743724022', '3495 Paul St', 'Aggrey Orina', 14, 'male', 'swing.jpg', '3', ' 35 (Father), 28 (Mother), 2 (Sibling)', 'Employed', 'Engineer', 500000.00, 'Apartment', 'One bedroom', 'Safe and friendly', 'Allan  +254798765432', 'i want to help children in need of a home', 'No criminal record', 'Cleared', '2024-10-26', '2024-10-26 15:02:31'),
+(12, 'Tony Makau', 'makau@gmail.com', '+254784701442', '3495 Paul St', 'Angel Wanjiru', 5, 'female', 'p1.png', '4', ' 30 (Father), 28 (Mother), 10 (Sibling), 7 (Sibling)', 'Employed', 'Teacher', 50000.00, 'Apartment', 'One bedroom', 'Safe and friendly', 'Jane  +254798765432', 'I want to provide a child a home', 'No criminal record', 'Cleared', '2024-11-04', '2024-11-04 14:36:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `approved_visitors`
+--
+
+CREATE TABLE `approved_visitors` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_number` varchar(50) NOT NULL,
+  `visit_date` date NOT NULL,
+  `visit_time` time NOT NULL,
+  `purpose` text NOT NULL,
+  `comments` text DEFAULT NULL,
+  `approval_date` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `approved_visitors`
+--
+
+INSERT INTO `approved_visitors` (`id`, `name`, `email`, `phone_number`, `visit_date`, `visit_time`, `purpose`, `comments`, `approval_date`) VALUES
+(1, 'Abdi Hassan', 'abdi.hassan@gmail.com', '0701234567', '2025-01-10', '10:00:00', 'General inquiry', 'Interested in learning more about the organization.', '2024-11-01 12:02:30'),
+(2, 'Jecinta Njeri', 'jecinta.njeri@gmail.com', '0790123456', '2024-11-09', '09:30:00', 'Volunteer inquiry', 'Wants to know how to help.', '2024-11-01 12:04:47'),
+(3, 'Zuri Muthoni', 'zuri.muthoni@gmail.com', '0789012345', '2025-10-08', '12:00:00', 'Donation', 'Bringing clothes and toys for the children.', '2024-11-01 12:50:40'),
+(4, 'Roy Macharia', 'machariaroy268@gmail.com', '+254784701442', '2025-01-22', '08:33:00', 'Adopt', 'none', '2024-11-04 13:35:20'),
+(5, 'Otieno Ochieng', 'otieno.ochieng@gmail.com', '0778901234', '2025-10-07', '13:15:00', 'Adoption process', 'Inquiring about the adoption process.', '2024-11-04 15:09:18');
 
 -- --------------------------------------------------------
 
@@ -101,26 +131,18 @@ CREATE TABLE `children` (
 --
 
 INSERT INTO `children` (`id`, `child_name`, `child_age`, `child_gender`, `date_of_birth`, `medical_history`, `admission_date`) VALUES
-(1, 'Amani Mwangi', 8, 'Male', '2015-02-10', 'None', '2021-09-01'),
-(2, 'Wanjiru Njeri', 7, 'Female', '2016-05-15', 'Allergies', '2021-09-01'),
-(3, 'Juma Otieno', 9, 'Male', '2014-08-22', 'Asthma', '2020-08-15'),
-(4, 'Aisha Abdi', 6, 'Female', '2017-11-30', 'None', '2021-09-01'),
-(5, 'Kamau Mwangi', 10, 'Male', '2013-01-05', 'Diabetes Type 1', '2019-05-20'),
-(6, 'Zuri Wairimu', 5, 'Female', '2018-02-18', 'None', '2022-01-10'),
-(7, 'Karanja Ndungu', 8, 'Male', '2015-06-25', 'None', '2021-09-01'),
-(8, 'Nyambura Chege', 7, 'Female', '2016-05-10', 'Mild Eczema', '2021-09-01'),
-(9, 'Otis Kiptoo', 9, 'Male', '2014-08-14', 'None', '2020-08-15'),
-(10, 'Amani Wambui', 6, 'Female', '2017-12-05', 'None', '2021-09-01'),
-(11, 'Baraka Muriuki', 8, 'Male', '2015-03-12', 'None', '2021-09-01'),
-(12, 'Jecinta Wairimu', 7, 'Female', '2016-09-20', 'Allergies', '2021-09-01'),
-(13, 'Abdi Hassan', 9, 'Male', '2014-07-30', 'Asthma', '2020-08-15'),
-(14, 'Fatuma Akinyi', 6, 'Female', '2017-11-11', 'None', '2021-09-01'),
-(15, 'Mwangi Kibet', 10, 'Male', '2013-01-25', 'Diabetes Type 1', '2019-05-20'),
-(16, 'Nia Njeri', 5, 'Female', '2018-03-18', 'None', '2022-01-10'),
-(17, 'Juma Nyaga', 8, 'Male', '2015-04-15', 'None', '2021-09-01'),
-(18, 'Kezia Wambui', 7, 'Female', '2016-06-30', 'Mild Eczema', '2021-09-01'),
-(19, 'Otieno Mbugua', 9, 'Male', '2014-09-10', 'None', '2020-08-15'),
-(20, 'Asha Karanja', 6, 'Female', '2017-10-20', 'None', '2021-09-01');
+(1, 'Amani Mwangi', 8, 'Male', '2015-06-15', 'No known allergies', '2023-01-01'),
+(2, 'Wanjiru Njeri', 6, 'Female', '2017-04-22', 'Asthma', '2023-02-15'),
+(3, 'Juma Abdi', 10, 'Male', '2013-12-05', 'No known medical issues', '2023-03-10'),
+(4, 'Aisha Otieno', 7, 'Female', '2016-09-09', 'No known allergies', '2023-04-20'),
+(5, 'Kiptoo Kibet', 5, 'Male', '2018-11-30', 'Sickle cell anemia', '2023-05-15'),
+(6, 'Njeri Wambui', 9, 'Female', '2014-03-12', 'No known medical issues', '2023-06-01'),
+(7, 'Musa Juma', 4, 'Male', '2019-08-17', 'No known allergies', '2023-07-10'),
+(8, 'Shiro Muthoni', 11, 'Female', '2012-02-25', 'Diabetes', '2023-08-05'),
+(9, 'Karanja Ndungu', 3, 'Male', '2020-05-21', 'No known medical issues', '2023-09-01'),
+(10, 'Amani Njeri', 2, 'Female', '2021-10-30', 'No known allergies', '2023-10-15'),
+(11, 'Jipendo Wonder', 2, 'Female', '2022-06-13', 'none', '2024-11-04'),
+(12, 'Benjamin Kimemia', 5, 'Male', '2019-06-26', 'none', '2024-11-04');
 
 -- --------------------------------------------------------
 
@@ -150,16 +172,40 @@ CREATE TABLE `donations` (
 --
 
 INSERT INTO `donations` (`id`, `name`, `phone_number`, `email`, `donation_type`, `donation_amount`, `payment_method`, `dedication`, `mpesa_phone_number`, `bank_name`, `bank_account_number`, `bank_branch`, `paypal_email`, `created_at`) VALUES
-(1, 'Wanjiru Mwangi', '+254712345678', 'wanjiru.mwangi@gmail.com', 'Food', 5000.00, 'MPESA', 'For the children', '0712345678', 'Equity Bank', '123456789', 'Nairobi', 'wanjiru.mwangi@gmail.com', '2024-10-28 02:36:04'),
-(2, 'Juma Otieno', '+254723456789', 'juma.otieno@gmail.com', 'Cloth', 2000.00, 'Bank Transfer', 'In memory of my father', NULL, 'KCB Bank', '987654321', 'Mombasa', 'juma.otieno@gmail.com', '2024-10-28 02:36:04'),
-(3, 'Amina Abdi', '+254734567890', 'amina.abdi@gmail.com', 'Cash', 10000.00, 'PayPal', 'For the community', NULL, NULL, NULL, NULL, 'amina.abdi@gmail.com', '2024-10-28 02:36:04'),
-(4, 'Kipkoech Tanui', '+254745678901', 'kipkoech.tanui@gmail.com', 'Other', 7500.00, 'MPESA', 'For the environment', '0745678901', 'Co-operative Bank', '456789123', 'Eldoret', 'kipkoech.tanui@gmail.com', '2024-10-28 02:36:04'),
-(5, 'Miriam Njeri', '+254756789012', 'miriam.njeri@gmail.com', 'Food', 3000.00, 'Cash', 'For education', NULL, NULL, NULL, NULL, NULL, '2024-10-28 02:36:04'),
-(6, 'David Karanja', '+254767890123', 'david.karanja@gmail.com', 'Other', 1500.00, 'MPESA', 'Support for health', '0767890123', 'Standard Chartered', '321654987', 'Nairobi', 'david.karanja@gmail.com', '2024-10-28 02:36:04'),
-(7, 'Grace Wairimu', '+254778901234', 'grace.wairimu@gmail.com', 'Cloth', 8000.00, 'Bank Transfer', 'For animal welfare', NULL, 'Absa Bank', '654321789', 'Nairobi', 'grace.wairimu@gmail.com', '2024-10-28 02:36:04'),
-(8, 'Peter Mwangi', '+254789012345', 'peter.mwangi@gmail.com', 'Cash', 6000.00, 'PayPal', 'For community development', NULL, NULL, NULL, NULL, 'peter.mwangi@gmail.com', '2024-10-28 02:36:04'),
-(9, 'Fatuma Ali', '+254790123456', 'fatuma.ali@gmail.com', 'Other', 4000.00, 'Cash', 'In support of education', NULL, NULL, NULL, NULL, NULL, '2024-10-28 02:36:04'),
-(10, 'Samuel Ndungu', '+254801234567', 'samuel.ndungu@gmail.com', 'Food', 2500.00, 'MPESA', 'For youth empowerment', '0781234567', 'Family Bank', '789456123', 'Nairobi', 'samuel.ndungu@gmail.com', '2024-10-28 02:36:04');
+(1, 'Robert Maina', '+254784701442', 'robert@gmail.com', 'Food', 5000.00, 'mpesa', 'My late grandfather', '0743724022', '', '', '', '', '2024-11-04 13:28:02'),
+(3, 'Main John', '+254784701442', 'maina@gmail.com', 'Other', 20000.00, 'mpesa', 'My late sister', '0743724022', '', '', '', '', '2024-11-04 14:38:45'),
+(4, 'Benjamin Kinoti', '+254784701442', 'benja@gmail.com', 'Cash', 90000.00, 'Other', '', '', '', '', '', '', '2024-11-04 14:39:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `processed_donations`
+--
+
+CREATE TABLE `processed_donations` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `donation_type` varchar(100) NOT NULL,
+  `donation_amount` decimal(10,2) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
+  `mpesa_phone_number` varchar(20) DEFAULT NULL,
+  `bank_name` varchar(100) DEFAULT NULL,
+  `bank_account_number` varchar(50) DEFAULT NULL,
+  `bank_branch` varchar(100) DEFAULT NULL,
+  `paypal_email` varchar(255) DEFAULT NULL,
+  `dedication` text DEFAULT NULL,
+  `processed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `processed_donations`
+--
+
+INSERT INTO `processed_donations` (`id`, `name`, `phone_number`, `email`, `donation_type`, `donation_amount`, `payment_method`, `mpesa_phone_number`, `bank_name`, `bank_account_number`, `bank_branch`, `paypal_email`, `dedication`, `processed_at`) VALUES
+(1, 'Alice Nanetia', '+254784701442', 'alice@gmail.com', '', 40000.00, 'paypal', '', '', '', '', 'alice@gmail.com', 'For the love of kids', '2024-11-04 14:41:12'),
+(2, 'Tabitha Wangeci', '+254784701442', 'tabitha@gmail.com', 'Food', 30000.00, 'bank_transfer', '', 'KCB', '1234567U89', 'Kiambu', '', '', '2024-11-04 14:55:50');
 
 -- --------------------------------------------------------
 
@@ -200,10 +246,11 @@ INSERT INTO `staff_info` (`id`, `name`, `id_number`, `dob`, `gender`, `phone`, `
 (7, 'Mary Atieno', '789012345', '1987-09-10', 'Female', '0777890123', 'mary@napastaa.org', 'Health and Wellness Officer', 'Health Services', 'Grace Njeri', '2018-01-10', 'Full-time', 'Day Shift', 'Diploma in Nsg.', 'First Aid, Health Mgmt', 'Health Education'),
 (8, 'Samuel Otieno', '890123456', '1983-12-15', 'Male', '0788901234', 'samuel@napastaa.org', 'Security Officer', 'Security', 'John Ochieng', '2018-02-25', 'Full-time', 'Night Shift', 'Diploma in Sec.', 'Conflict Resolution', 'Safety Management'),
 (9, 'Anne Nduta', '901234567', '1995-04-22', 'Female', '0799012345', 'anne@napastaa.org', 'Administrative Assistant', 'Administration', 'John Ochieng', '2018-07-18', 'Full-time', 'Day Shift', 'Diploma in Bus.', 'Office Administration', 'Communication Skills'),
-(10, 'James Kariuki', '012345678', '1980-02-07', 'Male', '0710123456', 'james@napastaa.org', 'Maintenance Supervisor', 'Maintenance', 'John Ochieng', '2018-04-05', 'Full-time', 'Day Shift', 'Diploma in Mech.', 'Facilities Management', 'Plumbing, Electrical'),
+(10, 'James Kimanzi', '012345678', '1980-02-07', 'Male', '0710123456', 'james@napastaa.org', 'Maintenance Supervisor', 'Maintenance', 'John Ochieng', '2018-04-05', '', 'Day', 'Diploma in Mech.', 'Facilities Management', 'Plumbing, Electrical'),
 (11, 'Lucy Wanjiru', '112345679', '1986-03-25', 'Female', '0791234567', 'lucy@napastaa.org', 'Teacher', 'Education', 'Peter Mwangi', '2018-02-15', 'Full-time', 'Day Shift', 'B.Ed.', 'Teaching, Child Dev.', 'Classroom Management'),
 (12, 'George Oduor', '122345679', '1990-06-10', 'Male', '0712345678', 'george@napastaa.org', 'Teacher', 'Education', 'Peter Mwangi', '2019-01-20', 'Full-time', 'Day Shift', 'B.Ed.', 'Teaching, Math Education', 'Curriculum Development'),
-(13, 'Esther Njoki', '132345679', '1993-09-05', 'Female', '0723456789', 'esther@napastaa.org', 'Teacher', 'Education', 'Peter Mwangi', '2020-07-10', 'Full-time', 'Day Shift', 'B.Ed.', 'Teaching, Early Childhood', 'Classroom Management');
+(13, 'Esther Njoki', '132345679', '1993-09-05', 'Female', '0723456789', 'esther@napastaa.org', 'Teacher', 'Education', 'Peter Mwangi', '2020-07-10', 'Full-time', 'Day Shift', 'B.Ed.', 'Teaching, Early Childhood', 'Classroom Management'),
+(15, 'Allan Ndiku', '40328334', '1994-02-08', 'Male', '+254784701442', 'kiemia@gmail.com', 'gaddener', 'maintenance', 'Grace Njeri', '2021-06-14', '', 'Day', 'high school certificate', 'gardening certificate', 'gardening/ growing crops');
 
 -- --------------------------------------------------------
 
@@ -216,7 +263,6 @@ CREATE TABLE `upcoming_events` (
   `event_title` varchar(255) NOT NULL,
   `event_date` date NOT NULL,
   `event_description` text NOT NULL,
-  `event_image` varchar(255) NOT NULL,
   `completed` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -224,13 +270,10 @@ CREATE TABLE `upcoming_events` (
 -- Dumping data for table `upcoming_events`
 --
 
-INSERT INTO `upcoming_events` (`id`, `event_title`, `event_date`, `event_description`, `event_image`, `completed`) VALUES
-(1, 'Volunteer Orientation', '0000-00-00', 'Learn how you can make a difference by volunteering with us', '', 0),
-(2, 'FOOD /HEALTH', '2025-02-02', 'sdrtyu', '', 0),
-(3, 'FOOD /HEALTH', '2025-02-02', 'sdrtyu', '', 0),
-(4, 'FOOD /HEALTH', '2025-02-02', 'sdrtyu', '', 0),
-(5, 'FOOD /HEALTH', '2025-02-02', 'sdrtyu', '', 0),
-(6, 'FOOD /HEALTH', '2025-02-02', 'sdrtyu', '', 0);
+INSERT INTO `upcoming_events` (`id`, `event_title`, `event_date`, `event_description`, `completed`) VALUES
+(1, 'Volunteer Orientation', '2024-12-31', 'Learn how volunteering makes a difference with us', 0),
+(2, 'school bus fundraiser', '2024-11-29', 'fudraiser for a new school bus', 0),
+(3, 'Charity Gala Night', '2024-11-27', 'charity gala night', 0);
 
 -- --------------------------------------------------------
 
@@ -254,16 +297,12 @@ CREATE TABLE `visitors` (
 --
 
 INSERT INTO `visitors` (`id`, `name`, `email`, `phone_number`, `visit_date`, `visit_time`, `purpose`, `comments`) VALUES
-(1, 'Juma Mwangi', 'juma.mwangi@gmail.com', '0712345678', '2024-12-01', '09:00:00', 'Inquiry about adoption', 'Looking for information on the adoption process.'),
+(1, 'Roy Macharia', 'machariaroy268@gmail.com', '0712345678', '2024-12-01', '09:00:00', 'Inquiry about adoption', 'Looking for information on the adoption process.'),
 (2, 'Wanjiru Njeri', 'wanjiru.njeri@gmail.com', '0723456789', '2025-10-02', '10:30:00', 'Follow-up visit', 'Interested in adopting a child.'),
 (3, 'Kipkoech Chebet', 'kipkoech.chebet@gmail.com', '0734567890', '2025-10-03', '11:00:00', 'Donation', 'Bringing donations for the children.'),
 (4, 'Aisha Abdi', 'aisha.abdi@gmail.com', '0745678901', '2024-11-04', '14:00:00', 'Volunteer inquiry', 'Wants to volunteer at the home.'),
 (5, 'Kamau Ndungu', 'kamau.ndungu@gmail.com', '0756789012', '2025-10-05', '15:30:00', 'General inquiry', 'Asking about the services offered.'),
-(6, 'Fatuma Wairimu', 'fatuma.wairimu@gmail.com', '0767890123', '2025-10-06', '08:45:00', 'Visit children', 'Wants to visit and spend time with the children.'),
-(7, 'Otieno Ochieng', 'otieno.ochieng@gmail.com', '0778901234', '2025-10-07', '13:15:00', 'Adoption process', 'Inquiring about the adoption process.'),
-(8, 'Zuri Muthoni', 'zuri.muthoni@gmail.com', '0789012345', '2025-10-08', '12:00:00', 'Donation', 'Bringing clothes and toys for the children.'),
-(9, 'Jecinta Njeri', 'jecinta.njeri@gmail.com', '0790123456', '2024-11-09', '09:30:00', 'Volunteer inquiry', 'Wants to know how to help.'),
-(10, 'Abdi Hassan', 'abdi.hassan@gmail.com', '0701234567', '2025-01-10', '10:00:00', 'General inquiry', 'Interested in learning more about the organization.');
+(6, 'Fatuma Wairimu', 'fatuma.wairimu@gmail.com', '0767890123', '2025-10-06', '08:45:00', 'Visit children', 'Wants to visit and spend time with the children.');
 
 --
 -- Indexes for dumped tables
@@ -282,6 +321,12 @@ ALTER TABLE `adoption_applications`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `approved_visitors`
+--
+ALTER TABLE `approved_visitors`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `children`
 --
 ALTER TABLE `children`
@@ -291,6 +336,12 @@ ALTER TABLE `children`
 -- Indexes for table `donations`
 --
 ALTER TABLE `donations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `processed_donations`
+--
+ALTER TABLE `processed_donations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -326,37 +377,49 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `adoption_applications`
 --
 ALTER TABLE `adoption_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `approved_visitors`
+--
+ALTER TABLE `approved_visitors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `children`
 --
 ALTER TABLE `children`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `processed_donations`
+--
+ALTER TABLE `processed_donations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `staff_info`
 --
 ALTER TABLE `staff_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `upcoming_events`
 --
 ALTER TABLE `upcoming_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

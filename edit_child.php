@@ -62,10 +62,8 @@ if (!mysqli_query($conn, $sql)) {
     <nav>
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
-            <li><a href="user_page.php">Donor Home</a></li>
-            <li><a href="donation.php">Donate</a></li>
+            <li><a href="admin_page.php">Dashboard</a></li>
             <li><a href="logout.php" class="btn">Logout</a></li>
-            <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
 

@@ -1,11 +1,8 @@
 <?php
-@include 'config.php';
-// Connect to database
-$conn = mysqli_connect('localhost', 'root', '', 'napastaa_db');
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+ @include 'config.php' ; // Connect to database
+  $conn=mysqli_connect('localhost', 'root' , '' , 'napastaa_db' );
+    // Check connection 
+    if (!$conn) { die("Connection failed: " . mysqli_connect_error());
 }
 // Insert donation into database
 if (isset($_POST['donate'])) {
@@ -22,14 +19,11 @@ if (isset($_POST['donate'])) {
     $bank_branch = $_POST['bank_branch'];
     $paypal_email = $_POST['paypal_email'];
 
-    $sql = "INSERT INTO donations (name, phone_number, email, donation_type, donation_amount, payment_method, dedication, mpesa_phone_number, bank_name, bank_account_number, bank_branch, paypal_email) 
-    VALUES ('$name', '$phone_number', '$email', '$donation_type', '$donation_amount', '$payment_method', '$dedication', '$mpesa_phone_number', '$bank_name', '$bank_account_number', '$bank_branch', '$paypal_email')";
-
-if (!mysqli_query($conn, $sql)) {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-}
-?>
+    $sql = " INSERT INTO donations (name, phone_number, email, donation_type, donation_amount, payment_method,
+    dedication, mpesa_phone_number, bank_name, bank_account_number, bank_branch, paypal_email) VALUES
+    ('$name', '$phone_number' , '$email' , '$donation_type' , '$donation_amount' , '$payment_method' , '$dedication'
+    , '$mpesa_phone_number' , '$bank_name' , '$bank_account_number' , '$bank_branch' , '$paypal_email' )"; if
+    (!mysqli_query($conn, $sql)) { echo "Error: " . $sql . "<br>" . mysqli_error($conn); } } ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,16 +45,33 @@ if (!mysqli_query($conn, $sql)) {
         <ul>
             <li><a href="user_page.php">Donor Home</a></li>
             <li><a class="active" href="donatio.php"> Donate</a></li>
+            <li><a href="#anonymous">Anonymous Donation</a></li>
             <li><a href="upcoming_events.php">Upcoming Events</a></li>
             <li><a href="visit.php">Visit</a></li>
             <li><a href="aboutus.html">ABOUT US</a></li>
         </ul>
     </nav>
+    <br>
+    <br>
+    <h2 class="h2title">Make a Donation</h2>
     <div class="img-back">
         <div class="imgd">
             <img class="imgd1" style="border-radius:10px;" src="images/mchild.jpg"
                 alt="children smiling while posing for a photo">
-            <p class="pd">Thank you for your contribution to the well being of Children in our center</p>
+            <div class="PD">
+                <p style="margin-top: 20px;
+  color: rgb(0, 0, 0);
+  text-decoration: solid;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: larger;
+  padding: 10px;
+  margin:10px;
+  background-color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: bold;">Thank you for your contribution to the well being of Children in our center
+                </p>
+            </div>
         </div>
         <form class="form_donation" action="" method="post">
             <div class="successful"
@@ -113,6 +124,9 @@ if (!mysqli_query($conn, $sql)) {
                 <label for="mpesa_phone_number">M-Pesa Phone Number:</label>
                 <input type="tel" id="mpesa_phone_number" name="mpesa_phone_number">
                 <br>
+
+                <button type="button" class="prompt" onclick="promptForMpesa()">Prompt</button>
+
             </div>
 
             <!-- Bank Transfer payment details fields -->
@@ -143,15 +157,21 @@ if (!mysqli_query($conn, $sql)) {
                     understood,
                     and agree to the following terms and conditions. Your donation is a voluntary contribution to
                     support
-                    the charitable activities of Napastaa Heimen Children's Home. All donations are non-refundable and
-                    non-transferable. Napastaa Heimen Children's Home reserves the right to use your donation for the
-                    purpose of supporting our charitable activities, which may include but are not limited to, providing
+                    the charitable activities of Napastaa Heimen Children's Home. All donations are non-refundable
+                    and
+                    non-transferable. Napastaa Heimen Children's Home reserves the right to use your donation for
+                    the
+                    purpose of supporting our charitable activities, which may include but are not limited to,
+                    providing
                     food, shelter, education, and healthcare to children in need. We will not share your personal
-                    information with any third party without your consent, except as required by law. By checking the
+                    information with any third party without your consent, except as required by law. By checking
+                    the
                     box
-                    below, you confirm that you are at least 18 years old and have the authority to make this donation.
+                    below, you confirm that you are at least 18 years old and have the authority to make this
+                    donation.
                     You
-                    also acknowledge that you have read and understood our refund and cancellation policies, and that
+                    also acknowledge that you have read and understood our refund and cancellation policies, and
+                    that
                     you
                     release Napastaa Heimen Children's Home from any liability arising from your donation.</p>
             </div>
@@ -167,7 +187,41 @@ if (!mysqli_query($conn, $sql)) {
             </div>
         </form>
     </div>
+
+    <div class="anonymous">
+
+        <h3 class="h2title">Make an anonymous Donations. Your details wont be saved</h3>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=PEBXQXXSKQLJY">
+            <h2 class="h2title" id="anonymous">PAYPAL</h2>
+        </a>
+
+        <h2 class="h2title">Mpesa
+            <br>
+            Paybill - 85747
+            <br>
+            Account - NAPASTAA
+        </h2>
+    </div>
+
+
+
+
     <script src="script.js"></script>
+
+    <div class="footer">
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2024 Napastaa Heimen Children's Home. All rights reserved.</p>
+                <p>Contact us: <a href="mailto:machariaroy268@gmail.com">info@napastaheimen.com</a></p>
+
+                <p>Follow us on:
+                    <a href="https://www.facebook.com/napastaheimen" target="_blank">Facebook</a> |
+                    <a href="https://twitter.com/napastaheimen" target="_blank">Twitter</a> |
+                    <a href="https://www.instagram.com/napastaheimen" target="_blank">Instagram</a>
+                </p>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
