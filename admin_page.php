@@ -76,7 +76,7 @@ if (!$result) {
         <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
         <ul>
             <li><a class="active" href="admin_page.php">Dashboard</a></li>
-            <li><button class="print" onclick="printTables()">
+            <li><button class="print" onclick="printReports()">
                     PRINT REPORT
                 </button></li>
 
@@ -162,7 +162,7 @@ if (!$result) {
             </table>
 
             <h2 class="h2title">Approved Visitors</h2>
-            <table border="1">
+            <table>
                 <thead>
                     <tr>
                         <th>ID</th>

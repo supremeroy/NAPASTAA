@@ -102,7 +102,7 @@ function approveVisitor(id) {
 }
 
 //print reports in admin dashboard
-function printTables() {
+function printReports() {
   //hide the sidebar
   const sidebar = document.querySelector(".sidebar");
   sidebar.style.display = "none";
@@ -116,7 +116,7 @@ function printTables() {
   printWindow.document.write("<html><head><title>Print Report</title>");
   printWindow.document.write(
     '<link rel="stylesheet" href="style.css" type="text/css" />'
-  ); // Include styles if needed
+  );
   printWindow.document.write("</head><body>");
   printWindow.document.write(content);
   printWindow.document.write("</body></html>");
@@ -127,6 +127,7 @@ function printTables() {
   // Restore the sidebar
   sidebar.style.display = "block";
 }
+
 //print donations in donations data
 function printTables() {
   // Hide the sidebar or any other elements you don't want to print
@@ -136,7 +137,7 @@ function printTables() {
   }
 
   // Get the table you want to print
-  const table = document.querySelector("#processedTable"); // Replace with the actual ID of your table
+  const table = document.querySelector("#processedTable");
   if (!table) {
     alert("No table found to print.");
     // Restore sidebar if no table is found
