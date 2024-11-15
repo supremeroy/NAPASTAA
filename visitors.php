@@ -26,7 +26,7 @@ if (isset($_POST['approve_id'])) {
             $delete_sql = "DELETE FROM visitors WHERE id = $id";
             mysqli_query($conn, $delete_sql);
             
-            // Prepare email content
+            // Generate email content
             $subject = 'Your Visit Request Has Been Approved!';
             $body = 'Dear ' . $visitor['name'] . ",\n\nWe are pleased to inform you that your request to visit Napastaa Heimen Children Home has been approved. Please ensure to arrive on the scheduled date and time.\n\nBest regards,\nNapastaa Heimen Team";
             $mailto_link = 'mailto:' . urlencode($visitor['email']) . '?subject=' . urlencode($subject) . '&body=' . urlencode($body);
@@ -135,7 +135,7 @@ mysqli_close($conn);
                                 <button type="submit" class="edit-link" style="font-size:10px">Approve</button>
                             </form>
                             <br>
-                            <a href="mailto:<?= htmlspecialchars($visitor['email']); ?>?subject=<?= urlencode('Your Request Has Been Declined.'); ?>&body=<?= urlencode('We regret to inform you that your request to visit Napastaa Heimen Children Home has been declined.'); ?>"
+                            <a href="mailto:<?= htmlspecialchars($visitor['email']); ?>?subject=<?= urlencode('Your Request Has Been Declined.'); ?>&body=<?= urlencode('We regret to inform you that your request to visit Napastaa Heimen Children Center has been declined.'); ?>"
                                 class="delete-link">Decline</a>
                         </td>
                     </tr>

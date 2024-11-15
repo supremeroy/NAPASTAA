@@ -214,7 +214,7 @@ if (mysqli_num_rows($processed_result) > 0) {
         echo "<td>" . $row["paypal_email"] . "</td>";
         echo "<td>" . $row["dedication"] . "</td>";
         echo "<td>
-        <a class='complete-link' href='mailto:" . $row['email'] . "?subject=Thank You for Your Donation!&body=Dear " . $row['name'] . ",%0A%0AThank you for your generous donation of Ksh " . $row['donation_amount'] . " to our organization. Your support helps us continue our work and make a difference in the lives of those we serve.%0A%0ABest regards,%0ANAPASTAA HEIMEN CHILDRENS HOME'>Email</a>
+        <a class='complete-link' href='mailto:" . $row['email'] . "?subject=Thank You for Your Donation!&body=Dear " . $row['name'] . ",%0A%0AThank you for your generous donation of Ksh " . $row['donation_amount'] . " to our organization. Your support helps us continue our work and make a difference in the lives of those we serve.%0A%0ABest regards,%0ANAPASTAA HEIMEN CHILDRENS CENTER'>Email</a>
       </td>";
         echo "</tr>";
     }
