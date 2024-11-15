@@ -60,7 +60,7 @@ if (!mysqli_query($conn, $sql)) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="admin_page.php">Dashboard</a></li>
             <li><a href="logout.php" class="btn">Logout</a></li>

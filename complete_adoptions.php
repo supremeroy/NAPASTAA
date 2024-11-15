@@ -32,7 +32,7 @@ if (!$result) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="adoption_form.php"> Adoption</a></li>
             <li><a class="active" href="complete_adoptions.php">PROCESSED ADOPTIONS</a></li>

@@ -16,7 +16,7 @@
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="user_page.php">Donor Home</a></li>

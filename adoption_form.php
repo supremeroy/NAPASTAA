@@ -56,7 +56,7 @@ if (isset($_POST['adopt'])) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a class="active" href="#"> Adoption</a></li>
             <li><a href="complete_adoptions.php">PROCESSED ADOPTIONS</a></li>

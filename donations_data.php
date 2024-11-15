@@ -84,7 +84,7 @@ mysqli_close($conn);
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a class="active" href="complete_adoptions.php">Donations</a></li>
             <li><a href="#view">Processed Donations</a></li>

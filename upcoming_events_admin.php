@@ -52,7 +52,7 @@ if (!$result) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a class="active" href="upcoming_events_admin.php">UPCOMING EVENTS</a></li>
             <li><a href="logout.php">LOGOUT</a></li>

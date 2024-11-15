@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="admin_page.php">ADMIN HOME</a></li>
             <li><a class="active" href="edit_events.php">EDIT EVENTS</a></li>

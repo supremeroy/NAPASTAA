@@ -57,7 +57,7 @@ if (!$result) {
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a class="active" href="childrens_data.php">Childrens Data</a></li>
             <li><a href="#view">Records</a></li>

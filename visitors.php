@@ -80,7 +80,7 @@ mysqli_close($conn);
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a class="active" href="#"> VISITORS</a></li>
             <li> <a href="logout.php" class="btn">logout</a></li>

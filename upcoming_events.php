@@ -19,7 +19,7 @@
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="user_page.php"> Donor Home</a></li>
             <li><a href="donation.php">Donate</a></li>

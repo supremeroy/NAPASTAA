@@ -17,15 +17,17 @@ $result = mysqli_query($conn, $query);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Completed Events</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="admin_page.php">ADMIN HOME</a></li>
             <li><a href="upcoming_events.php">UPCOMING EVENTS</a></li>

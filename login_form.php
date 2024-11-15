@@ -55,7 +55,7 @@ if(isset($_POST['submit'])){
 
 <body>
     <nav>
-        <label class="logo">NAPASTAA HEIMEN CHILDRENS HOME</label>
+        <label class="logo">NAPASTAA HEIMEN CHILDRENS CENTER</label>
         <ul>
             <li><a href="index.html">HOME</a></li>
             <li><a class="active" href="login_form.php">LOGIN</a></li>
